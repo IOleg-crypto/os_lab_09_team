@@ -1,0 +1,27 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "Clang",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug",
+	"dir-cur-src" : "D:/gitnext/os_9",
+	"dir-top-bld" : "D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug",
+	"dir-top-src" : "D:/gitnext/os_9",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"D:\\gitnext\\os_9\\core",
+		"core_autogen\\include",
+		"C:\\Qt\\6.10.1\\llvm-mingw_64\\include\\QtWidgets",
+		"C:\\Qt\\6.10.1\\llvm-mingw_64\\include",
+		"C:\\Qt\\6.10.1\\llvm-mingw_64\\include\\QtCore",
+		"C:\\Qt\\6.10.1\\llvm-mingw_64\\mkspecs\\win32-clang-g++",
+		"C:\\Qt\\6.10.1\\llvm-mingw_64\\include\\QtGui"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/CMakeFiles/core.dir"
+}
