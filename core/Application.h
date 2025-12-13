@@ -4,7 +4,6 @@
 #include "../managers/GuiRenderer.h"
 #include "../managers/WindowManager.h"
 
-
 class Application
 {
 public:
@@ -17,7 +16,6 @@ public:
 private:
     WindowManager m_windowManager;
     GuiRenderer m_guiRenderer;
-    RenderContext m_renderContext;
 };
 
 #endif

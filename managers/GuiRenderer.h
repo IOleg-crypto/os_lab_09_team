@@ -19,11 +19,6 @@
 #include <vector>
 #include <windows.h>
 
-struct RenderContext
-{
-    bool exit = false;
-};
-
 class GuiRenderer
 {
 public:
@@ -36,7 +31,7 @@ public:
     void Render();
 
     // Main drawing interface
-    void DrawMainGUI(RenderContext &ctx);
+    void DrawMainGUI();
 
 private:
     void InitImGui(GLFWwindow *window);
@@ -45,6 +40,7 @@ private:
 private:
     GLFWwindow *m_window;
     bool m_initialized;
+    bool m_isExit;
 };
 
 #endif // GUI_RENDERER_H

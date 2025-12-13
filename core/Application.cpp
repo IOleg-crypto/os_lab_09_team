@@ -35,14 +35,14 @@ void Application::Init()
 
 void Application::Run()
 {
-    while (!m_windowManager.ShouldClose() && !m_renderContext.exit)
+    while (!m_windowManager.ShouldClose())
     {
         m_windowManager.PollEvents();
 
         m_guiRenderer.NewFrame();
 
         // Draw Main GUI
-        m_guiRenderer.DrawMainGUI(m_renderContext);
+        m_guiRenderer.DrawMainGUI();
 
         int display_w, display_h;
         glfwGetFramebufferSize(m_windowManager.GetWindow(), &display_w, &display_h);
