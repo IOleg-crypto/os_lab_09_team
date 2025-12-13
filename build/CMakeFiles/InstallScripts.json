@@ -1,9 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"D:/gitnext/os_9/build/cmake_install.cmake",
-		"D:/gitnext/os_9/build/_deps/glfw-build/cmake_install.cmake",
-		"D:/gitnext/os_9/build/_deps/glfw-build/src/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
