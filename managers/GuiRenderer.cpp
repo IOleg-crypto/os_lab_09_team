@@ -137,7 +137,7 @@ void GuiRenderer::DrawMainGUI(RenderContext &ctx)
     // Simple window
     if (ImGui::Begin("Simple ImGui Window", &ctx.exit))
     {
-        ImGui::Text("Hello from Cross-Platform ImGui!");
+        ImGui::Text("Hello from ImGui!");
 
         static int counter = 0;
         if (ImGui::Button("Click Me (Counter)"))
@@ -147,7 +147,7 @@ void GuiRenderer::DrawMainGUI(RenderContext &ctx)
         ImGui::SameLine();
         ImGui::Text("Clicks: %d", counter);
 
-        static bool show_demo = false;
+        static bool show_demo = true;
         ImGui::Checkbox("Toggle State", &show_demo);
         if (show_demo)
         {
