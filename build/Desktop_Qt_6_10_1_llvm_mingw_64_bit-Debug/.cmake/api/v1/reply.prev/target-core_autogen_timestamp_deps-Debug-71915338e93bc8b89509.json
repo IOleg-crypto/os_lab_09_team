@@ -1,0 +1,34 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"core/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "window::@042a9f56126fb90ddaf9"
+		}
+	],
+	"id" : "core_autogen_timestamp_deps::@57760688d1f824db5d9c",
+	"isGeneratorProvided" : true,
+	"name" : "core_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : "core",
+		"source" : "core"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

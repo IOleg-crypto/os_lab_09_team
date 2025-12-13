@@ -369,6 +369,7 @@
 	[
 		"D:/gitnext/os_9/core",
 		"D:/gitnext/os_9",
+		"D:/gitnext/os_9/window",
 		"C:/Qt/6.9.3/llvm-mingw_64/include/QtCore",
 		"C:/Qt/6.9.3/llvm-mingw_64/include",
 		"C:/Qt/6.9.3/llvm-mingw_64/mkspecs/win32-clang-g++",

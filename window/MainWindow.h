@@ -3,13 +3,7 @@
 
 #include <QApplication>
 #include <QMainWindow>
-#include <memory.h>
-
-#define MAINWINDOW_EXEC(argc, argv)        \
-    QApplication a(argc, argv);            \
-    QMainWindow w;                          \
-    w.show();                               \
-    return a.exec();
+#include <memory>
 
 
 QT_BEGIN_NAMESPACE
@@ -18,16 +12,17 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+  MainWindow(QWidget *parent = nullptr);
+  ~MainWindow();
+public:
+  Ui::MainWindow* getWindow();
 
 private:
-    // Use unique_ptr instead raw pointer
-    std::unique_ptr<Ui::MainWindow>m_ui;
+  // Use unique_ptr instead raw pointer
+  std::unique_ptr<Ui::MainWindow> m_ui;
 };
 #endif // MAINWINDOW_H

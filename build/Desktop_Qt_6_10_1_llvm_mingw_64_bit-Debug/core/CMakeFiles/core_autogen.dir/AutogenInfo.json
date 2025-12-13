@@ -144,9 +144,9 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/gitnext/os_9/core/MainWindow.h",
+			"D:/gitnext/os_9/core/Application.h",
 			"MU",
-			"EWIEGA46WW/moc_MainWindow.cpp",
+			"EWIEGA46WW/moc_Application.cpp",
 			null
 		]
 	],
@@ -178,6 +178,7 @@
 	[
 		"D:/gitnext/os_9/core",
 		"D:/gitnext/os_9",
+		"D:/gitnext/os_9/window",
 		"C:/Qt/6.10.1/llvm-mingw_64/include/QtWidgets",
 		"C:/Qt/6.10.1/llvm-mingw_64/include",
 		"C:/Qt/6.10.1/llvm-mingw_64/include/QtCore",
@@ -220,7 +221,7 @@
 	"SETTINGS_FILE" : "D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/core/CMakeFiles/core_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/gitnext/os_9/core/MainWindow.cpp", "MU", null ]
+		[ "D:/gitnext/os_9/core/Application.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
