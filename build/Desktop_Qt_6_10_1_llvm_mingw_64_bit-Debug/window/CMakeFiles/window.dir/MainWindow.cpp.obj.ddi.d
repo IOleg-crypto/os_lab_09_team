@@ -450,7 +450,6 @@ window\CMakeFiles\window.dir\MainWindow.cpp.obj.ddi: \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtGui\qfontvariableaxis.h \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qsizepolicy.h \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qtabwidget.h \
-  D:\Windows\ Kits\10\Include\10.0.26100.0\ucrt\memory.h \
   D:\gitnext\os_9\build\Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug\window\window_autogen\include\.\ui_MainWindow.h \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtCore\QVariant \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\QMenuBar \

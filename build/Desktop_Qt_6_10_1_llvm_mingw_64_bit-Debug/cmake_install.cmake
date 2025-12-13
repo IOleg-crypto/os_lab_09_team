@@ -39,6 +39,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/core/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/window/cmake_install.cmake")
 endif()
 

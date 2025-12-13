@@ -2,7 +2,8 @@
 	"InstallScripts" : 
 	[
 		"D:/gitnext/os_9/build/cmake_install.cmake",
-		"D:/gitnext/os_9/build/core/cmake_install.cmake"
+		"D:/gitnext/os_9/build/core/cmake_install.cmake",
+		"D:/gitnext/os_9/build/window/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

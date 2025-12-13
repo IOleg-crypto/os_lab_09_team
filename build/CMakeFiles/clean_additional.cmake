@@ -9,5 +9,8 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "Debug")
   "core\\CMakeFiles\\core_autogen.dir\\ParseCache.txt"
   "core\\core_autogen"
   "os_9_autogen"
+  "window\\CMakeFiles\\window_autogen.dir\\AutogenUsed.txt"
+  "window\\CMakeFiles\\window_autogen.dir\\ParseCache.txt"
+  "window\\window_autogen"
   )
 endif()

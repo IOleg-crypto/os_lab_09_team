@@ -978,7 +978,6 @@ D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/window/window_au
   C:/Qt/Tools/llvm-mingw1706_64/include/c++/v1/wctype.h \
   C:/Qt/Tools/llvm-mingw1706_64/include/corecrt.h \
   C:/Qt/Tools/llvm-mingw1706_64/include/crtdefs.h \
-  C:/Qt/Tools/llvm-mingw1706_64/include/memory.h \
   C:/Qt/Tools/llvm-mingw1706_64/include/pthread_time.h \
   C:/Qt/Tools/llvm-mingw1706_64/include/sdks/_mingw_ddk.h \
   C:/Qt/Tools/llvm-mingw1706_64/include/sec_api/sys/timeb_s.h \

@@ -16,6 +16,7 @@
 	[
 		"D:\\gitnext\\os_9\\core",
 		"D:\\gitnext\\os_9",
+		"D:\\gitnext\\os_9\\window",
 		"core\\core_autogen\\include",
 		"C:\\Qt\\6.9.3\\llvm-mingw_64\\include\\QtWidgets",
 		"C:\\Qt\\6.9.3\\llvm-mingw_64\\include",
@@ -28,10 +29,10 @@
 	"module-dir" : "D:/gitnext/os_9/build/core/CMakeFiles/core.dir",
 	"sources" : 
 	{
-		"core/CMakeFiles/core.dir/MainWindow.cpp.obj" : 
+		"core/CMakeFiles/core.dir/Application.cpp.obj" : 
 		{
 			"language" : "CXX",
-			"source" : "D:/gitnext/os_9/core/MainWindow.cpp"
+			"source" : "D:/gitnext/os_9/core/Application.cpp"
 		}
 	}
 }
