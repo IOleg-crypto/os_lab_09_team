@@ -25,15 +25,15 @@ A lightweight, cross-platform (Windows) C++ application template using **Dear Im
    **Using HTTPS:**
 
    ```powershell
-   git clone --recursive https://github.com/username/os_9.git
-   cd os_9
+   git clone --recursive https://github.com/IOleg-crypto/os_lab_09_team.git
+   cd os_lab_09_team
    ```
 
    **Using SSH:**
 
    ```powershell
-   git clone --recursive git@github.com:username/os_9.git
-   cd os_9
+   git clone --recursive git@github.com:IOleg-crypto/os_lab_09_team.git
+   cd os_lab_09_team
    ```
 
 2. **Configure with CMake** (using Ninja):
