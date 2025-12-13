@@ -2,11 +2,6 @@
 
 A C++ project using Qt 6 and CMake.
 
-## Structure
-
-- **main**: Entry point of the application.
-- **window**: Contains the main window implementation and UI files.
-
 ## Prerequisites
 
 - **CMake**: 3.29 or newer.
