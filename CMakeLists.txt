@@ -24,15 +24,25 @@ set(APP_MAIN
 )
 
 # --- Executable ---
+# Тут ми додали твої нові класи (SharedMemoryCore та PipeCore)
 qt_add_executable(os_9
     MANUAL_FINALIZATION
     ${APP_MAIN}
+    Protocol.h
+    SharedMemoryCore.h SharedMemoryCore.cpp
+    PipeCore.h PipeCore.cpp
 )
 
 target_link_libraries(os_9 PRIVATE
     core
     Qt${QT_VERSION_MAJOR}::Widgets
 )
+
+# --- Windows Libraries ---
+# ВАЖЛИВО: Підключаємо бібліотеку для UUID (Rpcrt4), тільки якщо це Windows
+if(WIN32)
+    target_link_libraries(os_9 PRIVATE Rpcrt4)
+endif()
 
 # --- Finalize for Qt 6 ---
 if(QT_VERSION_MAJOR EQUAL 6)
