@@ -2,6 +2,8 @@ add_library(window STATIC
     MainWindow.cpp
     MainWindow.h
     MainWindow.ui
+    workerwindow.h workerwindow.cpp
+    workerwindow.ui
 )
 
 # --- Qt Widgets ---
