@@ -1,6 +1,8 @@
 #include "workerwindow.h"
 #include "ui_workerwindow.h"
 #include <QDateTime>
+#include <QMessageBox>
+#include <QTimer>
 
 WorkerWindow::WorkerWindow(int workerId, VirtualBoard* board, QWidget *parent)
     : QMainWindow(parent),
@@ -12,9 +14,24 @@ WorkerWindow::WorkerWindow(int workerId, VirtualBoard* board, QWidget *parent)
     setWindowTitle(QString("Worker #%1").arg(workerId));
 
     connect(ui->btnSend, &QPushButton::clicked, this, &WorkerWindow::onSendClicked);
-
-    // Підключаємо нову кнопку голосування
     connect(ui->btnVote, &QPushButton::clicked, this, &WorkerWindow::onVoteClicked);
+
+    ui->btnVote->setEnabled(false);
+    ui->spinBoxVoteID->setEnabled(false);
+
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, [this]() {
+        if (m_board && m_board->IsSessionStopped()) {
+            ui->lineEditIdea->setEnabled(false);
+            ui->btnSend->setEnabled(false);
+
+            ui->btnVote->setEnabled(true);
+            ui->spinBoxVoteID->setEnabled(true);
+            ui->label_2->setText("PHASE 2: VOTING ACTIVE!");
+            ui->label_2->setStyleSheet("color: #28a745; font-weight: bold;");
+        }
+    });
+    timer->start(1000);
 }
 
 WorkerWindow::~WorkerWindow() = default;
@@ -25,7 +42,6 @@ void WorkerWindow::onSendClicked()
     if (text.isEmpty()) return;
 
     if (m_board) {
-        // Відправляємо ідею
         m_board->SubmitIdea(text.toStdString(), m_workerId);
     }
 
@@ -37,23 +53,21 @@ void WorkerWindow::onVoteClicked()
 {
     if (!m_board) return;
 
-           // 1. Отримуємо номер ID з поля вводу
-    int targetId = ui->spinBoxVoteID->value(); // Це число (1, 2, 3...)
+    int targetId = ui->spinBoxVoteID->value();
 
-           // 2. Отримуємо всі ідеї з сервера, щоб знайти потрібну
+    if (m_votedIds.count(targetId)) {
+        QMessageBox::warning(this, "Error", "You have already voted for this idea!");
+        return;
+    }
+
     auto allIdeas = m_board->FetchAllIdeas();
-
-           // 3. Перевіряємо, чи існує така ідея
-           // (targetId - 1, бо люди рахують з 1, а програмісти з 0)
     if (targetId > 0 && targetId <= (int)allIdeas.size()) {
-
-        // Знаходимо UUID (унікальний код) ідеї за її номером у списку
         const auto& idea = allIdeas[targetId - 1];
-
-        // Голосуємо!
         m_board->VoteForIdea(idea.uuid);
 
-        QMessageBox::information(this, "Voted", QString("Voted for idea #%1").arg(targetId));
+        m_votedIds.insert(targetId);
+
+        QMessageBox::information(this, "Success", QString("Vote cast for idea #%1").arg(targetId));
     } else {
         QMessageBox::warning(this, "Error", "Invalid Idea ID!");
     }

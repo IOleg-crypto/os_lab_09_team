@@ -6,11 +6,11 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QListWidget>
-#include <QSpinBox> // Додали для лічильника
+#include <QSpinBox> // лічильник
 #include <QLabel>
 #include <QVBoxLayout>
-#include <QMessageBox> // Додали для повідомлень
-
+#include <QMessageBox> // повідомлень
+#include <set>
 #include "../ipc/VirtualBoard.h"
 
 namespace Ui {
@@ -27,12 +27,14 @@ public:
 
 private slots:
     void onSendClicked();
-    void onVoteClicked(); // Новий слот
+    void onVoteClicked();
 
 private:
     std::unique_ptr<Ui::WorkerWindow> ui;
     VirtualBoard* m_board;
     int m_workerId;
+    std::set<int> m_votedIds;
+    void checkPhase();
 };
 
 #endif // WORKERWINDOW_H
