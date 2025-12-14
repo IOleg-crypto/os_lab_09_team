@@ -13,3 +13,8 @@ D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/window/CMakeFile
 D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/window/CMakeFiles/rebuild_cache.dir
 D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/window/CMakeFiles/window_autogen_timestamp_deps.dir
 D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/window/CMakeFiles/window_autogen.dir
+D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/ipc/CMakeFiles/ipc_core.dir
+D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/ipc/CMakeFiles/edit_cache.dir
+D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/ipc/CMakeFiles/rebuild_cache.dir
+D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/ipc/CMakeFiles/ipc_core_autogen_timestamp_deps.dir
+D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/ipc/CMakeFiles/ipc_core_autogen.dir

@@ -1,12 +1,6 @@
 add_library(core STATIC
     Application.cpp
     Application.h
-    # Add new classes
-    Protocol.h
-    SharedMemoryCore.h
-    SharedMemoryCore.cpp
-    PipeCore.h
-    PipeCore.cpp
 )
 
 # --- Qt Widgets ---
@@ -22,9 +16,11 @@ target_include_directories(core PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}/window
+    ${CMAKE_SOURCE_DIR}/ipc
 )
 
 target_link_libraries(core PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets
     window
+    ipc_core
 )

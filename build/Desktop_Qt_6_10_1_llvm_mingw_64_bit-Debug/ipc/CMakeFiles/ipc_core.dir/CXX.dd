@@ -1,0 +1,9 @@
+ninja_dyndep_version = 1.0
+build ipc/CMakeFiles/ipc_core.dir/VirtualBoard.cpp.obj: dyndep
+
+build ipc/CMakeFiles/ipc_core.dir/ProcessManager.cpp.obj: dyndep
+
+build ipc/CMakeFiles/ipc_core.dir/pipe/PipeCore.cpp.obj: dyndep
+
+build ipc/CMakeFiles/ipc_core.dir/sharedmemory/SharedMemoryCore.cpp.obj: dyndep
+

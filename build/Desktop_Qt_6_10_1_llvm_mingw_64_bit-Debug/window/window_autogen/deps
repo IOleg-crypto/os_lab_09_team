@@ -1,4 +1,5 @@
 window_autogen/timestamp: \
+	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/QProcess \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/q17memory.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/q20functional.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/q20iterator.h \
@@ -56,6 +57,7 @@ window_autogen/timestamp: \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qglobalstatic.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qhash.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qhashfunctions.h \
+	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qiodevice.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qiodevicebase.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qiterable.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qiterator.h \
@@ -81,6 +83,7 @@ window_autogen/timestamp: \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qoverload.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qpair.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qpoint.h \
+	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qprocess.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qprocessordetection.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qrect.h \
 	C:/Qt/6.10.1/llvm-mingw_64/include/QtCore/qrefcount.h \
@@ -245,11 +248,18 @@ window_autogen/timestamp: \
 	C:/Qt/6.10.1/llvm-mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CheckCXXCompilerFlag.cmake \
+	C:/Qt/Tools/llvm-mingw1706_64/include/_bsd_types.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/_mingw.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/_mingw_mac.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/_mingw_secapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/_mingw_unicode.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/_timeval.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/apiset.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/apisetcconv.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/assert.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/basetsd.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/bcrypt.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/bemapiset.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/c++/v1/__algorithm/adjacent_find.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/c++/v1/__algorithm/all_of.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/c++/v1/__algorithm/any_of.h \
@@ -1046,16 +1056,258 @@ window_autogen/timestamp: \
 	C:/Qt/Tools/llvm-mingw1706_64/include/c++/v1/version \
 	C:/Qt/Tools/llvm-mingw1706_64/include/c++/v1/wchar.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/c++/v1/wctype.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/cderr.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/cguid.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/combaseapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/commdlg.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/concurrencysal.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/corecrt.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/crtdefs.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/datetimeapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/dde.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/ddeml.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/debugapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/dlgs.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/dpapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/driverspecs.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/errhandlingapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/excpt.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/fibersapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/fileapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/fltwinerror.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/guiddef.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/handleapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/heapapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/imm.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/inaddr.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/interlockedapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/ioapiset.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/jobapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/joystickapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/ktmtypes.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/libloaderapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/lzexpand.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/malloc.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/mciapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/mcx.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/memoryapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/minwinbase.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/minwindef.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/mmeapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/mmiscapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/mmiscapi2.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/mmsyscom.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/mmsystem.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/msxml.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/namedpipeapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/namespaceapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/nb30.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/ncrypt.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/oaidl.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/objbase.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/objidl.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/objidlbase.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/ole2.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/oleauto.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/oleidl.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/playsoundapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/poppack.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/processenv.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/processthreadsapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/processtopologyapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/profileapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/propidl.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/prsht.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/psdk_inc/_fd_types.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/psdk_inc/_ip_mreq1.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/psdk_inc/_ip_types.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/psdk_inc/_socket_types.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/psdk_inc/_wsa_errnos.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/psdk_inc/_wsadata.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/psdk_inc/_xmitfile.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/psdk_inc/intrin-impl.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/pshpack1.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/pshpack2.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/pshpack4.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/pshpack8.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/pthread_time.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/realtimeapiset.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/reason.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/rpc.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/rpcasync.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/rpcdce.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/rpcdcep.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/rpcndr.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/rpcnsi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/rpcnsip.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/rpcnterr.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/rpcsal.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/sal.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/sdkddkver.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/sdks/_mingw_ddk.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/sec_api/stralign_s.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/sec_api/sys/timeb_s.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/securityappcontainer.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/securitybaseapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/servprov.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/shellapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/specstrings.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/stralign.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/stringapiset.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/synchapi.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/sys/timeb.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/sysinfoapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/systemtopologyapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/threadpoolapiset.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/threadpoollegacyapiset.h \
 	C:/Qt/Tools/llvm-mingw1706_64/include/time.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/timeapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/timezoneapi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/tvout.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/unknwn.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/unknwnbase.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/urlmon.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/utilapiset.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/virtdisk.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winapifamily.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winbase.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/wincon.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/wincrypt.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/windef.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/windows.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winefs.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winerror.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/wingdi.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winioctl.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winnetwk.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winnls.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winnt.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winperf.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winreg.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winscard.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winsmcrd.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winsock.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winspool.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winsvc.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winuser.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/winver.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/wnnc.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/wow64apiset.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/wtypes.h \
+	C:/Qt/Tools/llvm-mingw1706_64/include/wtypesbase.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/__wmmintrin_aes.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/__wmmintrin_pclmul.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/adxintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/ammintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/amxcomplexintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/amxfp16intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/amxintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx2intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512bf16intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512bitalgintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512bwintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512cdintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512dqintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512erintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512fintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512fp16intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512ifmaintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512ifmavlintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512pfintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vbmi2intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vbmiintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vbmivlintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vlbf16intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vlbitalgintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vlbwintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vlcdintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vldqintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vlfp16intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vlintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vlvbmi2intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vlvnniintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vlvp2intersectintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vnniintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vp2intersectintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vpopcntdqintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avx512vpopcntdqvlintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avxifmaintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avxintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avxneconvertintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avxvnniint16intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avxvnniint8intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/avxvnniintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/bmi2intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/bmiintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/cetintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/cldemoteintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/clflushoptintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/clwbintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/clzerointrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/cmpccxaddintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/crc32intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/emmintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/enqcmdintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/f16cintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/fma4intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/fmaintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/fxsrintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/gfniintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/hresetintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/ia32intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/immintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/invpcidintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/keylockerintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/lwpintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/lzcntintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/mm3dnow.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/mm_malloc.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/mmintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/movdirintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/mwaitxintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/pconfigintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/pkuintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/pmmintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/popcntintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/prfchiintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/prfchwintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/ptwriteintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/raointintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/rdpruintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/rdseedintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/rtmintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/serializeintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/sgxintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/sha512intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/shaintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/sm3intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/sm4intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/smmintrin.h \
 	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/stdarg.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/tbmintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/tmmintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/tsxldtrkintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/uintrintrin.h \
 	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vadefs.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vaesintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/vpclmulqdqintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/waitpkgintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/wbnoinvdintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/wmmintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/x86gprintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/x86intrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/xmmintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/xopintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/xsavecintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/xsaveintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/xsaveoptintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/xsavesintrin.h \
+	C:/Qt/Tools/llvm-mingw1706_64/lib/clang/17/include/xtestintrin.h \
 	D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/window/window_autogen/moc_predefs.h \
+	D:/gitnext/os_9/ipc/ProcessManager.h \
+	D:/gitnext/os_9/ipc/VirtualBoard.h \
+	D:/gitnext/os_9/ipc/protocol/Protocol.h \
+	D:/gitnext/os_9/ipc/sharedmemory/SharedMemoryCore.h \
 	D:/gitnext/os_9/window/CMakeLists.txt \
 	D:/gitnext/os_9/window/MainWindow.cpp \
 	D:/gitnext/os_9/window/MainWindow.h \

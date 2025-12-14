@@ -20,4 +20,5 @@ target_include_directories(window PUBLIC
 
 target_link_libraries(window PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets
+    ipc_core
 )

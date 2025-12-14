@@ -6,16 +6,26 @@
 #include <QApplication>
 #include <memory>
 
-class Application {
+class Application
+{
 private:
-  std::unique_ptr<QApplication> m_app;
-  std::unique_ptr<MainWindow> m_window;
+    std::unique_ptr<QApplication> m_app;
+    std::unique_ptr<MainWindow> m_window;
+
+    // Logic (From IPC Lib)
+    std::unique_ptr<VirtualBoard> m_board;
+    std::unique_ptr<ProcessManager> m_procManager;
+
+    bool m_isHost;
+    int m_workerId;
+
 public:
-  Application(int &argc, char **argv);
-  ~Application();
+    Application(int &argc, char **argv);
+    ~Application();
+
 public:
-  // Init and run application
-  int Run();
+    // Init and run application
+    int Run();
 };
 
 #endif // APPLICATION_H

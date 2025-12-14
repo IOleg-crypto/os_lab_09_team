@@ -17,6 +17,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 add_subdirectory(core)
 add_subdirectory(window)
+add_subdirectory(ipc)
 
 # --- Sources ---
 set(APP_MAIN

@@ -73,9 +73,4 @@ core_autogen/timestamp: \
 	D:/gitnext/os_9/core/Application.cpp \
 	D:/gitnext/os_9/core/Application.h \
 	D:/gitnext/os_9/core/CMakeLists.txt \
-	D:/gitnext/os_9/core/PipeCore.cpp \
-	D:/gitnext/os_9/core/PipeCore.h \
-	D:/gitnext/os_9/core/Protocol.h \
-	D:/gitnext/os_9/core/SharedMemoryCore.cpp \
-	D:/gitnext/os_9/core/SharedMemoryCore.h \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

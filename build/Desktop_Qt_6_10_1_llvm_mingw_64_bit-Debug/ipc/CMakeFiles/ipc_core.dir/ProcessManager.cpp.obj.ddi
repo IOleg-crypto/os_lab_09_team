@@ -1,0 +1,9 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "ipc\\CMakeFiles\\ipc_core.dir\\ProcessManager.cpp.obj"
+    }
+  ],
+  "version": 1
+}
