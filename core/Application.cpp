@@ -23,17 +23,19 @@ Application::Application(int &argc, char **argv)
         m_workerId = parser.value(workerOption).toInt();
     }
 
-           // 2. Create Logic (IPC)
-           // Створюємо дошку (для воркера isHost = false)
+    // 2. Create Logic (IPC)
+    // Створюємо дошку (для воркера isHost = false)
     m_board = std::make_unique<VirtualBoard>(m_isHost);
 
     if (m_isHost)
     {
         // 3. Create UI (Only for Supervisor)
         m_window = std::make_unique<MainWindow>();
+        
+        // Тут ми передаємо вказівник через .get(), як у nastya-branch
         m_window->SetBoard(m_board.get());
 
-               // 5. Create Process Manager
+        // 5. Create Process Manager
         m_procManager = std::make_unique<ProcessManager>();
     }
 }
@@ -67,18 +69,17 @@ int Application::Run()
 int Application::RunWorker()
 {
     // --- ТУТ БУВ КОД СИМУЛЯЦІЇ (БОТА) ---
-    // Ми його видаляємо, бо тепер у нас є графічний інтерфейс,
-    // і ти сам будеш вводити ідеї руками.
-
-           // 1. Створюємо твоє вікно виконавця
-           // Передаємо ID і вказівник на дошку, щоб вікно могло слати дані
-           // Використовуємо 'new', щоб об'єкт жив поки працює програма
+    // Ми його видаляємо, бо тепер у нас є графічний інтерфейс (з nastya-branch)
+    
+    // 1. Створюємо твоє вікно виконавця
+    // Передаємо ID і вказівник на дошку, щоб вікно могло слати дані
+    // Використовуємо 'new', щоб об'єкт жив поки працює програма
     WorkerWindow *w = new WorkerWindow(m_workerId, m_board.get());
 
     // 2. Показуємо вікно
     w->show();
 
-           // 3. Запускаємо головний цикл подій Qt
-           // Це дозволяє вікну реагувати на кліки, ввід тексту і не зависати.
+    // 3. Запускаємо головний цикл подій Qt
+    // Це дозволяє вікну реагувати на кліки, ввід тексту і не зависати.
     return m_app->exec();
 }
