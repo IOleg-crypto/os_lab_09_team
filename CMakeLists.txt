@@ -17,6 +17,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 add_subdirectory(core)
 add_subdirectory(window)
+add_subdirectory(ipc)
 
 # --- Sources ---
 set(APP_MAIN
@@ -24,13 +25,9 @@ set(APP_MAIN
 )
 
 # --- Executable ---
-# Тут ми додали твої нові класи (SharedMemoryCore та PipeCore)
 qt_add_executable(os_9
     MANUAL_FINALIZATION
     ${APP_MAIN}
-    Protocol.h
-    SharedMemoryCore.h SharedMemoryCore.cpp
-    PipeCore.h PipeCore.cpp
 )
 
 target_link_libraries(os_9 PRIVATE

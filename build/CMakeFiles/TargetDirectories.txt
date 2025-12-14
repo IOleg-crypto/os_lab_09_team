@@ -13,3 +13,8 @@ D:/gitnext/os_9/build/window/CMakeFiles/edit_cache.dir
 D:/gitnext/os_9/build/window/CMakeFiles/rebuild_cache.dir
 D:/gitnext/os_9/build/window/CMakeFiles/window_autogen_timestamp_deps.dir
 D:/gitnext/os_9/build/window/CMakeFiles/window_autogen.dir
+D:/gitnext/os_9/build/ipc/CMakeFiles/ipc_core.dir
+D:/gitnext/os_9/build/ipc/CMakeFiles/edit_cache.dir
+D:/gitnext/os_9/build/ipc/CMakeFiles/rebuild_cache.dir
+D:/gitnext/os_9/build/ipc/CMakeFiles/ipc_core_autogen_timestamp_deps.dir
+D:/gitnext/os_9/build/ipc/CMakeFiles/ipc_core_autogen.dir

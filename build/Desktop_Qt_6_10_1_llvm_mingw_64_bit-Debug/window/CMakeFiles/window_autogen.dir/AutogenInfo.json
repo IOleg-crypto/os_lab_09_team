@@ -178,6 +178,8 @@
 	[
 		"D:/gitnext/os_9/window",
 		"D:/gitnext/os_9",
+		"D:/gitnext/os_9/ipc",
+		"D:/gitnext/os_9/ipc/protocol",
 		"C:/Qt/6.10.1/llvm-mingw_64/include/QtWidgets",
 		"C:/Qt/6.10.1/llvm-mingw_64/include",
 		"C:/Qt/6.10.1/llvm-mingw_64/include/QtCore",

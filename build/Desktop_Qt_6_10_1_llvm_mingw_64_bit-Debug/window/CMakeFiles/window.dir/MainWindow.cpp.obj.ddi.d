@@ -450,11 +450,187 @@ window\CMakeFiles\window.dir\MainWindow.cpp.obj.ddi: \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtGui\qfontvariableaxis.h \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qsizepolicy.h \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qtabwidget.h \
+  D:\gitnext\os_9\ipc\VirtualBoard.h \
+  D:\gitnext\os_9\ipc\sharedmemory\SharedMemoryCore.h \
+  D:\gitnext\os_9\ipc\protocol\Protocol.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\windows.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\winapifamily.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\winpackagefamily.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\sdkddkver.h \
+  C:\Program\ Files\Microsoft\ Visual\ Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\excpt.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\windef.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\minwindef.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\specstrings.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\specstrings_strict.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\specstrings_undef.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\driverspecs.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\sdv_driverspecs.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winnt.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\kernelspecs.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\basetsd.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\guiddef.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\pshpack4.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\poppack.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\pshpack2.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\pshpack8.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\pshpack1.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\apiset.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\ktmtypes.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winbase.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\apisetcconv.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\minwinbase.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\apiquery2.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\processenv.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\fileapifromapp.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\fileapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\debugapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\utilapiset.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\handleapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\errhandlingapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\fibersapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\namedpipeapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\profileapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\heapapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\ioapiset.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\synchapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\interlockedapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\processthreadsapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\sysinfoapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\memoryapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\enclaveapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\threadpoollegacyapiset.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\threadpoolapiset.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\jobapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\jobapi2.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\wow64apiset.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\libloaderapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\securitybaseapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\namespaceapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\systemtopologyapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\processtopologyapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\securityappcontainer.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\realtimeapiset.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\winerror.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\timezoneapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\wingdi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winuser.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\tvout.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winnls.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\datetimeapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\stringapiset.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\wincon.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\wincontypes.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\consoleapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\consoleapi2.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\consoleapi3.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winver.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\verrsrc.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winreg.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\reason.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winnetwk.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\wnnc.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\cderr.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\dde.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\ddeml.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\dlgs.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\lzexpand.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\mmsystem.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\mmsyscom.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\mciapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\mmiscapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\mmiscapi2.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\playsoundapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\mmeapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\timeapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\joystickapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\nb30.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\rpc.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\rpcdce.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\rpcdcep.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\rpcnsi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\rpcnterr.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\rpcasync.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\shellapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winperf.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winsock.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\inaddr.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\wincrypt.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\bcrypt.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\ncrypt.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\dpapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winefs.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winscard.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\wtypes.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\rpcndr.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\rpcnsip.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\rpcsal.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\wtypesbase.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winioctl.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\winsmcrd.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winspool.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\prsht.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\ole2.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\objbase.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\combaseapi.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\unknwnbase.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\objidlbase.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\cguid.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\coml2api.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\objidl.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\unknwn.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\propidlbase.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\oaidl.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\urlmon.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\oleidl.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\servprov.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\msxml.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\propidl.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\oleauto.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\commdlg.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\shared\stralign.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\winsvc.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\mcx.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\imm.h \
+  D:\Windows\ Kits\10\Include\10.0.26100.0\um\ime_cmodes.h \
+  D:\gitnext\os_9\ipc\ProcessManager.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtCore\QProcess \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtCore\qprocess.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtCore\qiodevice.h \
   D:\gitnext\os_9\build\Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug\window\window_autogen\include\.\ui_MainWindow.h \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtCore\QVariant \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\QLabel \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qlabel.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qframe.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtGui\qpicture.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtGui\qtextdocument.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtCore\qurl.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\QListWidget \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qlistwidget.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qlistview.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qabstractitemview.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qabstractscrollarea.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtCore\qabstractitemmodel.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtCore\qitemselectionmodel.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qabstractitemdelegate.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qstyleoption.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qabstractspinbox.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtGui\qvalidator.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtCore\qregularexpression.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qslider.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qabstractslider.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qstyle.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qtabbar.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qrubberband.h \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\QMenuBar \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qmenubar.h \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qmenu.h \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\QStatusBar \
   C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qstatusbar.h \
-  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\QWidget
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\QVBoxLayout \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qboxlayout.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qlayout.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qlayoutitem.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\qgridlayout.h \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtWidgets\QWidget \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtCore\QTimer \
+  C:\Qt\6.10.1\llvm-mingw_64\include\QtCore\qtimer.h

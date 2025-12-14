@@ -16,9 +16,11 @@ target_include_directories(core PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}/window
+    ${CMAKE_SOURCE_DIR}/ipc
 )
 
 target_link_libraries(core PUBLIC
     Qt${QT_VERSION_MAJOR}::Widgets
     window
+    ipc_core
 )
