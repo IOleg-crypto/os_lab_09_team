@@ -75,7 +75,7 @@ build CMakeFiles/os_9.dir/main/main.cpp.obj: CXX_COMPILER__os_9_unscanned_Debug 
 
 build os_9.exe: CXX_EXECUTABLE_LINKER__os_9_Debug CMakeFiles/os_9.dir/os_9_autogen/mocs_compilation.cpp.obj CMakeFiles/os_9.dir/main/main.cpp.obj | core/libcore.a window/libwindow.a C$:/Qt/6.10.1/llvm-mingw_64/lib/libQt6Widgets.a C$:/Qt/6.10.1/llvm-mingw_64/lib/libQt6Gui.a C$:/Qt/6.10.1/llvm-mingw_64/lib/libQt6Core.a || core/libcore.a os_9_autogen os_9_autogen_timestamp_deps window/libwindow.a
   FLAGS = -DQT_QML_DEBUG -g
-  LINK_LIBRARIES = core/libcore.a  window/libwindow.a  C:/Qt/6.10.1/llvm-mingw_64/lib/libQt6Widgets.a  C:/Qt/6.10.1/llvm-mingw_64/lib/libQt6Gui.a  C:/Qt/6.10.1/llvm-mingw_64/lib/libQt6Core.a  -pthread  -lmpr  -luserenv  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = core/libcore.a  -lRpcrt4  window/libwindow.a  C:/Qt/6.10.1/llvm-mingw_64/lib/libQt6Widgets.a  C:/Qt/6.10.1/llvm-mingw_64/lib/libQt6Gui.a  C:/Qt/6.10.1/llvm-mingw_64/lib/libQt6Core.a  -pthread  -lmpr  -luserenv  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\os_9.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -177,7 +177,45 @@ build core/CMakeFiles/core.dir/Application.cpp.obj: CXX_COMPILER__core_scanned_D
   OBJECT_FILE_DIR = core\CMakeFiles\core.dir
   dyndep = core/CMakeFiles/core.dir/CXX.dd
 
-build core/CMakeFiles/core.dir/CXX.dd | D$:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/core/CMakeFiles/core.dir/CXXModules.json core/CMakeFiles/core.dir/Application.cpp.obj.modmap: CXX_DYNDEP__core_Debug core/CMakeFiles/core.dir/Application.cpp.obj.ddi | D$:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/core/CMakeFiles/core.dir/CXXDependInfo.json
+build core/CMakeFiles/core.dir/SharedMemoryCore.cpp.obj.ddi: CXX_SCAN__core_Debug D$:/gitnext/os_9/core/SharedMemoryCore.cpp || cmake_object_order_depends_target_core
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -DWINVER=0x0A00 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN32_WINNT=0x0A00 -D_WIN64
+  DEP_FILE = core\CMakeFiles\core.dir\SharedMemoryCore.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = core\CMakeFiles\core.dir\SharedMemoryCore.cpp.obj.ddi
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++23 -fansi-escape-codes -fcolor-diagnostics -pthread
+  INCLUDES = -ID:/gitnext/os_9/core -ID:/gitnext/os_9 -ID:/gitnext/os_9/window -isystem D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/core/core_autogen/include -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/llvm-mingw_64/include -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtCore -isystem C:/Qt/6.10.1/llvm-mingw_64/mkspecs/win32-clang-g++ -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtGui
+  OBJ_FILE = core\CMakeFiles\core.dir\SharedMemoryCore.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = core\CMakeFiles\core.dir\SharedMemoryCore.cpp.obj.ddi.i
+
+build core/CMakeFiles/core.dir/SharedMemoryCore.cpp.obj: CXX_COMPILER__core_scanned_Debug D$:/gitnext/os_9/core/SharedMemoryCore.cpp | core/CMakeFiles/core.dir/SharedMemoryCore.cpp.obj.modmap || cmake_object_order_depends_target_core core/CMakeFiles/core.dir/CXX.dd
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -DWINVER=0x0A00 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN32_WINNT=0x0A00 -D_WIN64
+  DEP_FILE = core\CMakeFiles\core.dir\SharedMemoryCore.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = core\CMakeFiles\core.dir\SharedMemoryCore.cpp.obj.modmap
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++23 -fansi-escape-codes -fcolor-diagnostics -pthread
+  INCLUDES = -ID:/gitnext/os_9/core -ID:/gitnext/os_9 -ID:/gitnext/os_9/window -isystem D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/core/core_autogen/include -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/llvm-mingw_64/include -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtCore -isystem C:/Qt/6.10.1/llvm-mingw_64/mkspecs/win32-clang-g++ -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtGui
+  OBJECT_DIR = core\CMakeFiles\core.dir
+  OBJECT_FILE_DIR = core\CMakeFiles\core.dir
+  dyndep = core/CMakeFiles/core.dir/CXX.dd
+
+build core/CMakeFiles/core.dir/PipeCore.cpp.obj.ddi: CXX_SCAN__core_Debug D$:/gitnext/os_9/core/PipeCore.cpp || cmake_object_order_depends_target_core
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -DWINVER=0x0A00 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN32_WINNT=0x0A00 -D_WIN64
+  DEP_FILE = core\CMakeFiles\core.dir\PipeCore.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = core\CMakeFiles\core.dir\PipeCore.cpp.obj.ddi
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++23 -fansi-escape-codes -fcolor-diagnostics -pthread
+  INCLUDES = -ID:/gitnext/os_9/core -ID:/gitnext/os_9 -ID:/gitnext/os_9/window -isystem D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/core/core_autogen/include -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/llvm-mingw_64/include -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtCore -isystem C:/Qt/6.10.1/llvm-mingw_64/mkspecs/win32-clang-g++ -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtGui
+  OBJ_FILE = core\CMakeFiles\core.dir\PipeCore.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = core\CMakeFiles\core.dir\PipeCore.cpp.obj.ddi.i
+
+build core/CMakeFiles/core.dir/PipeCore.cpp.obj: CXX_COMPILER__core_scanned_Debug D$:/gitnext/os_9/core/PipeCore.cpp | core/CMakeFiles/core.dir/PipeCore.cpp.obj.modmap || cmake_object_order_depends_target_core core/CMakeFiles/core.dir/CXX.dd
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -DWINVER=0x0A00 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN32_WINNT=0x0A00 -D_WIN64
+  DEP_FILE = core\CMakeFiles\core.dir\PipeCore.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = core\CMakeFiles\core.dir\PipeCore.cpp.obj.modmap
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++23 -fansi-escape-codes -fcolor-diagnostics -pthread
+  INCLUDES = -ID:/gitnext/os_9/core -ID:/gitnext/os_9 -ID:/gitnext/os_9/window -isystem D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/core/core_autogen/include -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/llvm-mingw_64/include -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtCore -isystem C:/Qt/6.10.1/llvm-mingw_64/mkspecs/win32-clang-g++ -isystem C:/Qt/6.10.1/llvm-mingw_64/include/QtGui
+  OBJECT_DIR = core\CMakeFiles\core.dir
+  OBJECT_FILE_DIR = core\CMakeFiles\core.dir
+  dyndep = core/CMakeFiles/core.dir/CXX.dd
+
+build core/CMakeFiles/core.dir/CXX.dd | D$:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/core/CMakeFiles/core.dir/CXXModules.json core/CMakeFiles/core.dir/Application.cpp.obj.modmap core/CMakeFiles/core.dir/SharedMemoryCore.cpp.obj.modmap core/CMakeFiles/core.dir/PipeCore.cpp.obj.modmap: CXX_DYNDEP__core_Debug core/CMakeFiles/core.dir/Application.cpp.obj.ddi core/CMakeFiles/core.dir/SharedMemoryCore.cpp.obj.ddi core/CMakeFiles/core.dir/PipeCore.cpp.obj.ddi | D$:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/core/CMakeFiles/core.dir/CXXDependInfo.json
 
 
 # =============================================================================
@@ -187,7 +225,7 @@ build core/CMakeFiles/core.dir/CXX.dd | D$:/gitnext/os_9/build/Desktop_Qt_6_10_1
 #############################################
 # Link the static library core\libcore.a
 
-build core/libcore.a: CXX_STATIC_LIBRARY_LINKER__core_Debug core/CMakeFiles/core.dir/core_autogen/mocs_compilation.cpp.obj core/CMakeFiles/core.dir/Application.cpp.obj || core/core_autogen core/core_autogen_timestamp_deps window/libwindow.a
+build core/libcore.a: CXX_STATIC_LIBRARY_LINKER__core_Debug core/CMakeFiles/core.dir/core_autogen/mocs_compilation.cpp.obj core/CMakeFiles/core.dir/Application.cpp.obj core/CMakeFiles/core.dir/SharedMemoryCore.cpp.obj core/CMakeFiles/core.dir/PipeCore.cpp.obj || core/core_autogen core/core_autogen_timestamp_deps window/libwindow.a
   LANGUAGE_COMPILE_FLAGS = -DQT_QML_DEBUG -g
   OBJECT_DIR = core\CMakeFiles\core.dir
   POST_BUILD = cd .

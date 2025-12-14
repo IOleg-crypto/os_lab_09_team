@@ -1,34 +1,36 @@
 #ifndef SHARED_MEMORY_CORE_H
 #define SHARED_MEMORY_CORE_H
 
+#include "Protocol.h"
+
 #include <windows.h>
 #include <vector>
 #include <string>
-#include "Protocol.h"
+
 
 class SharedMemoryCore {
 public:
     SharedMemoryCore(bool host);
     ~SharedMemoryCore();
-
-    bool addIdea(const std::string& text, int worker_id);
-    std::vector<Idea> getAllIdeas();
-    void vote(const std::string& uuid);
-
-    void setStopped(bool stop);
-    bool isStopped();
+public:
+    bool AddIdea(const std::string& text, int worker_id);
+    std::vector<Idea> GetAllIdeas();
+    void Vote(const std::string& uuid);
+public:
+    void SetStopped(bool stop);
+    bool IsStopped();
 
 private:
-    HANDLE hMapFile;
-    HANDLE hMutex;
-    BoardLayout* pBoard;
-    bool is_host;
+    HANDLE m_hMapFile;
+    HANDLE m_hMutex;
+    BoardLayout* m_pBoard;
+    bool m_isHost;
 
-    void lock();
-    void unlock();
+    void Lock();
+    void Unlock();
     
-    // Генерація справжнього UUID
-    void generateUUID(char* buffer);
+    // Generate real UUID
+    void GenerateUUID(char* buffer);
 };
 
 #endif // SHARED_MEMORY_CORE_H

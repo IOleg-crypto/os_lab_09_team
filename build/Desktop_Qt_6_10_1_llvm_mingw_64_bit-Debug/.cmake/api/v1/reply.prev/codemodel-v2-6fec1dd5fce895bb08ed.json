@@ -1,0 +1,167 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"build" : "core",
+					"jsonFile" : "directory-core-Debug-e3757ce4a321da3133c4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "core",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				},
+				{
+					"build" : "window",
+					"jsonFile" : "directory-window-Debug-235dc1e4fc13d0777c4b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "window",
+					"targetIndexes" : 
+					[
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "os_9",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "core::@57760688d1f824db5d9c",
+					"jsonFile" : "target-core-Debug-d14f612a9761dab85caa.json",
+					"name" : "core",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "core_autogen::@57760688d1f824db5d9c",
+					"jsonFile" : "target-core_autogen-Debug-31800c04b5d1c920c331.json",
+					"name" : "core_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "core_autogen_timestamp_deps::@57760688d1f824db5d9c",
+					"jsonFile" : "target-core_autogen_timestamp_deps-Debug-71915338e93bc8b89509.json",
+					"name" : "core_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "os_9::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-os_9-Debug-9303d883005e2e660ace.json",
+					"name" : "os_9",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "os_9_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-os_9_autogen-Debug-7b1ca384cb381b7d9e49.json",
+					"name" : "os_9_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "os_9_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-os_9_autogen_timestamp_deps-Debug-ac272e71da095946e55f.json",
+					"name" : "os_9_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "window::@042a9f56126fb90ddaf9",
+					"jsonFile" : "target-window-Debug-639eefa451c40513d5d4.json",
+					"name" : "window",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "window_autogen::@042a9f56126fb90ddaf9",
+					"jsonFile" : "target-window_autogen-Debug-e2dbfefbe174e60309bf.json",
+					"name" : "window_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "window_autogen_timestamp_deps::@042a9f56126fb90ddaf9",
+					"jsonFile" : "target-window_autogen_timestamp_deps-Debug-af195255d0dd89bfe74e.json",
+					"name" : "window_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/gitnext/os_9/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug",
+		"source" : "D:/gitnext/os_9"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

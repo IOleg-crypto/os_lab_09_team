@@ -1,3 +1,7 @@
 ninja_dyndep_version = 1.0
 build core/CMakeFiles/core.dir/Application.cpp.obj: dyndep
 
+build core/CMakeFiles/core.dir/SharedMemoryCore.cpp.obj: dyndep
+
+build core/CMakeFiles/core.dir/PipeCore.cpp.obj: dyndep
+

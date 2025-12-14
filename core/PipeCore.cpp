@@ -1,14 +1,14 @@
-#include "PipeCore.h"
-#include <iostream>
 #include <rpc.h>
+// Include class
+#include "PipeCore.h"
 
 #pragma comment(lib, "Rpcrt4.lib")
 
-PipeCore::PipeCore(bool host) : is_host(host), server_stopped_flag(false) {}
+PipeCore::PipeCore(bool host) : m_isHost(host), m_server_stopped_flag(false) {}
 PipeCore::~PipeCore() {}
 
-// --- ГЕНЕРАЦІЯ UUID ---
-void PipeCore::generateUUID(char* buffer) {
+// --- Generation UUID ---
+void PipeCore::GenerateUUID(char* buffer) {
     UUID uuid;
     UuidCreate(&uuid);
     unsigned char* str;
@@ -19,16 +19,21 @@ void PipeCore::generateUUID(char* buffer) {
     }
 }
 
-// --- СЕРВЕР ---
-void PipeCore::serverProcessPendingConnection() {
-    if (!is_host) return;
+// --- Server ---
+void PipeCore::ServerProcessPendingConnection() {
+    if (!m_isHost) {
+        return;
+    }
 
     HANDLE hPipe = CreateNamedPipeA(
         PIPE_NAME, PIPE_ACCESS_DUPLEX, 
         PIPE_TYPE_MESSAGE | PIPE_READMODE_MESSAGE | PIPE_NOWAIT,
         PIPE_UNLIMITED_INSTANCES, 4096, 4096, 0, NULL);
 
-    if (hPipe == INVALID_HANDLE_VALUE) return;
+    if (hPipe == INVALID_HANDLE_VALUE)
+    {
+        return;
+    }
 
     bool connected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED);
 
@@ -40,23 +45,26 @@ void PipeCore::serverProcessPendingConnection() {
             if (header.command == CMD_ADD_IDEA) {
                 Idea newIdea;
                 if (ReadFile(hPipe, &newIdea, sizeof(Idea), &bytesRead, NULL)) {
-                    if (!server_stopped_flag) server_ideas.push_back(newIdea);
+                    if (!m_server_stopped_flag)
+                    {
+                        m_serverIdeas.push_back(newIdea);
+                    }
                 }
             } 
             else if (header.command == CMD_GET_ALL) {
-                int count = server_ideas.size();
+                int count = m_serverIdeas.size();
                 DWORD written;
                 WriteFile(hPipe, &count, sizeof(int), &written, NULL);
-                if (count > 0) WriteFile(hPipe, server_ideas.data(), count * sizeof(Idea), &written, NULL);
+                if (count > 0) WriteFile(hPipe, m_serverIdeas.data(), count * sizeof(Idea), &written, NULL);
             }
             else if (header.command == CMD_CHECK_STOP) {
                 DWORD written;
-                WriteFile(hPipe, &server_stopped_flag, sizeof(bool), &written, NULL);
+                WriteFile(hPipe, &m_server_stopped_flag, sizeof(bool), &written, NULL);
             }
             else if (header.command == CMD_VOTE) {
                 char uuid[UUID_SIZE];
                 ReadFile(hPipe, uuid, UUID_SIZE, &bytesRead, NULL);
-                for (auto& idea : server_ideas) {
+                for (auto& idea : m_serverIdeas) {
                     if (strcmp(idea.uuid, uuid) == 0) {
                         idea.votes++;
                         break;
@@ -69,12 +77,20 @@ void PipeCore::serverProcessPendingConnection() {
     CloseHandle(hPipe);
 }
 
-void PipeCore::serverSetStop(bool stop) { server_stopped_flag = stop; }
-std::vector<Idea> PipeCore::serverGetIdeasLocal() { return server_ideas; }
+void PipeCore::ServerSetStop(bool stop){
+    m_server_stopped_flag = stop;
+}
+
+std::vector<Idea> PipeCore::ServerGetIdeasLocal() {
+    return m_serverIdeas;
+}
 
 // --- КЛІЄНТ ---
-bool PipeCore::sendRequest(PipeCmd cmd, const void* dataIn, int sizeIn, void* dataOut, int sizeOut, int* bytesRead) {
-    if (!WaitNamedPipeA(PIPE_NAME, NMPWAIT_WAIT_FOREVER)) return false;
+bool PipeCore::SendRequest(PipeCmd cmd, const void* dataIn, int sizeIn, void* dataOut, int sizeOut, int* bytesRead) {
+    if (!WaitNamedPipeA(PIPE_NAME, NMPWAIT_WAIT_FOREVER))
+    {
+        return false;
+    }
     HANDLE hPipe = CreateFileA(PIPE_NAME, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
     if (hPipe == INVALID_HANDLE_VALUE) return false;
 
@@ -82,7 +98,10 @@ bool PipeCore::sendRequest(PipeCmd cmd, const void* dataIn, int sizeIn, void* da
     DWORD written;
     WriteFile(hPipe, &header, sizeof(header), &written, NULL);
 
-    if (sizeIn > 0 && dataIn) WriteFile(hPipe, dataIn, sizeIn, &written, NULL);
+    if (sizeIn > 0 && dataIn)
+    {
+        WriteFile(hPipe, dataIn, sizeIn, &written, NULL);
+    }
 
     bool result = true;
     if (sizeOut > 0 && dataOut) {
@@ -95,32 +114,34 @@ bool PipeCore::sendRequest(PipeCmd cmd, const void* dataIn, int sizeIn, void* da
     return result;
 }
 
-void PipeCore::clientAddIdea(const std::string& text, int worker_id) {
+void PipeCore::ClientAddIdea(const std::string& text, int worker_id) {
     Idea idea;
     strncpy_s(idea.text, text.c_str(), TEXT_SIZE);
     idea.worker_id = worker_id;
     idea.votes = 0;
-    generateUUID(idea.uuid);
-    sendRequest(CMD_ADD_IDEA, &idea, sizeof(Idea), NULL, 0, NULL);
+    GenerateUUID(idea.uuid);
+    SendRequest(CMD_ADD_IDEA, &idea, sizeof(Idea), NULL, 0, NULL);
 }
 
-bool PipeCore::clientIsStopped() {
+bool PipeCore::ClientIsStopped() {
     bool stopped = true;
-    sendRequest(CMD_CHECK_STOP, NULL, 0, &stopped, sizeof(bool), NULL);
+    SendRequest(CMD_CHECK_STOP, NULL, 0, &stopped, sizeof(bool), NULL);
     return stopped;
 }
 
-void PipeCore::clientVote(const std::string& uuid) {
-    sendRequest(CMD_VOTE, uuid.c_str(), UUID_SIZE, NULL, 0, NULL);
+void PipeCore::ClientVote(const std::string& uuid) {
+    SendRequest(CMD_VOTE, uuid.c_str(), UUID_SIZE, NULL, 0, NULL);
 }
 
-std::vector<Idea> PipeCore::clientGetAllIdeas() {
+std::vector<Idea> PipeCore::ClientGetAllIdeas() {
     std::vector<Idea> list;
     if (!WaitNamedPipeA(PIPE_NAME, NMPWAIT_WAIT_FOREVER)) return list;
     HANDLE hPipe = CreateFileA(PIPE_NAME, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
     if (hPipe == INVALID_HANDLE_VALUE) return list;
 
-    PipeMessageHeader header = { (int)CMD_GET_ALL, 0 };
+    PipeMessageHeader header = {
+        (int)CMD_GET_ALL, 0
+    };
     DWORD written, read;
     WriteFile(hPipe, &header, sizeof(header), &written, NULL);
 

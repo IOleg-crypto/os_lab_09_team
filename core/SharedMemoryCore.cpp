@@ -1,41 +1,52 @@
-#include "SharedMemoryCore.h"
-#include <iostream>
 #include <rpc.h> // Бібліотека для UUID
+// Include class
+#include "SharedMemoryCore.h"
 
 // Автоматичне підключення лінкера (для MSVC)
 #pragma comment(lib, "Rpcrt4.lib")
 
-SharedMemoryCore::SharedMemoryCore(bool host) : is_host(host), hMapFile(NULL), pBoard(NULL) {
-    hMutex = CreateMutexA(NULL, FALSE, MUTEX_NAME);
+SharedMemoryCore::SharedMemoryCore(bool host) : m_isHost(host), m_hMapFile(NULL), m_pBoard(nullptr) {
+    m_hMutex = CreateMutexA(NULL, FALSE, MUTEX_NAME);
 
-    if (is_host) {
-        hMapFile = CreateFileMappingA(INVALID_HANDLE_VALUE, NULL, PAGE_READWRITE, 
+    if (m_isHost) {
+        m_hMapFile = CreateFileMappingA(INVALID_HANDLE_VALUE, NULL, PAGE_READWRITE,
                                       0, sizeof(BoardLayout), SHM_NAME);
     } else {
-        hMapFile = OpenFileMappingA(FILE_MAP_ALL_ACCESS, FALSE, SHM_NAME);
+        m_hMapFile = OpenFileMappingA(FILE_MAP_ALL_ACCESS, FALSE, SHM_NAME);
     }
 
-    if (hMapFile) {
-        pBoard = (BoardLayout*)MapViewOfFile(hMapFile, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(BoardLayout));
-        if (is_host && pBoard) {
-            lock();
-            memset(pBoard, 0, sizeof(BoardLayout));
-            unlock();
+    if (m_hMapFile) {
+        m_pBoard = (BoardLayout*)MapViewOfFile(m_hMapFile, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(BoardLayout));
+        if (m_isHost && m_pBoard) {
+            Lock();
+            memset(m_pBoard, 0, sizeof(BoardLayout));
+            Unlock();
         }
     }
 }
 
 SharedMemoryCore::~SharedMemoryCore() {
-    if (pBoard) UnmapViewOfFile(pBoard);
-    if (hMapFile) CloseHandle(hMapFile);
-    if (hMutex) CloseHandle(hMutex);
+    if (m_pBoard){
+        UnmapViewOfFile(m_pBoard);
+    }
+    if (m_hMapFile){
+        CloseHandle(m_hMapFile);
+    }
+    if (m_hMutex)
+    {
+        CloseHandle(m_hMutex);
+    }
 }
 
-void SharedMemoryCore::lock() { WaitForSingleObject(hMutex, INFINITE); }
-void SharedMemoryCore::unlock() { ReleaseMutex(hMutex); }
+void SharedMemoryCore::Lock() {
+    WaitForSingleObject(m_hMutex, INFINITE);
+}
+void SharedMemoryCore::Unlock() {
+    ReleaseMutex(m_hMutex);
+}
 
 // --- РЕАЛІЗАЦІЯ СПРАВЖНЬОГО UUID ---
-void SharedMemoryCore::generateUUID(char* buffer) {
+void SharedMemoryCore::GenerateUUID(char* buffer) {
     UUID uuid;
     UuidCreate(&uuid); 
     
@@ -48,60 +59,72 @@ void SharedMemoryCore::generateUUID(char* buffer) {
     }
 }
 
-bool SharedMemoryCore::addIdea(const std::string& text, int worker_id) {
-    if (!pBoard) return false;
+bool SharedMemoryCore::AddIdea(const std::string& text, int worker_id) {
+    if (!m_pBoard)
+    {
+        return false;
+    }
     bool success = false;
 
-    lock();
-    if (!pBoard->is_stopped && pBoard->count < MAX_IDEAS) {
-        Idea& idea = pBoard->ideas[pBoard->count];
+    Lock();
+    if (!m_pBoard->is_stopped && m_pBoard->count < MAX_IDEAS) {
+        Idea& idea = m_pBoard->ideas[m_pBoard->count];
         strncpy_s(idea.text, text.c_str(), TEXT_SIZE);
-        generateUUID(idea.uuid);
+        GenerateUUID(idea.uuid);
         idea.worker_id = worker_id;
         idea.votes = 0;
-        pBoard->count++;
+        m_pBoard->count++;
         success = true;
     }
-    unlock();
+    Unlock();
     return success;
 }
 
-std::vector<Idea> SharedMemoryCore::getAllIdeas() {
+std::vector<Idea> SharedMemoryCore::GetAllIdeas() {
     std::vector<Idea> list;
-    if (!pBoard) return list;
-
-    lock();
-    for (int i = 0; i < pBoard->count; ++i) {
-        list.push_back(pBoard->ideas[i]);
+    if (!m_pBoard)
+    {
+        return list;
     }
-    unlock();
+
+    Lock();
+    for (int i = 0; i < m_pBoard->count; ++i) {
+        list.push_back(m_pBoard->ideas[i]);
+    }
+    Unlock();
     return list;
 }
 
-void SharedMemoryCore::vote(const std::string& uuid) {
-    if (!pBoard) return;
-    lock();
-    for (int i = 0; i < pBoard->count; ++i) {
-        if (strcmp(pBoard->ideas[i].uuid, uuid.c_str()) == 0) {
-            pBoard->ideas[i].votes++;
+void SharedMemoryCore::Vote(const std::string& uuid) {
+    if (!m_pBoard)
+    {
+        return;
+    }
+    Lock();
+    for (int i = 0; i < m_pBoard->count; ++i) {
+        if (strcmp(m_pBoard->ideas[i].uuid, uuid.c_str()) == 0) {
+            m_pBoard->ideas[i].votes++;
             break;
         }
     }
-    unlock();
+    Unlock();
 }
 
-void SharedMemoryCore::setStopped(bool stop) {
-    if (pBoard) {
-        lock();
-        pBoard->is_stopped = stop;
-        unlock();
+void SharedMemoryCore::SetStopped(bool stop) {
+    if (m_pBoard) {
+        Lock();
+        m_pBoard->is_stopped = stop;
+        Unlock();
     }
 }
 
-bool SharedMemoryCore::isStopped() {
-    if (!pBoard) return true;
-    lock();
-    bool s = pBoard->is_stopped;
-    unlock();
+bool SharedMemoryCore::IsStopped() {
+    if (!m_pBoard)
+    {
+        return true;
+    }
+    Lock();
+    bool s = m_pBoard->is_stopped;
+    Unlock();
     return s;
 }

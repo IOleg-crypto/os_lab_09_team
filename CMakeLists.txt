@@ -24,13 +24,9 @@ set(APP_MAIN
 )
 
 # --- Executable ---
-# Тут ми додали твої нові класи (SharedMemoryCore та PipeCore)
 qt_add_executable(os_9
     MANUAL_FINALIZATION
     ${APP_MAIN}
-    Protocol.h
-    SharedMemoryCore.h SharedMemoryCore.cpp
-    PipeCore.h PipeCore.cpp
 )
 
 target_link_libraries(os_9 PRIVATE

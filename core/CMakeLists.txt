@@ -1,6 +1,12 @@
 add_library(core STATIC
     Application.cpp
     Application.h
+    # Add new classes
+    Protocol.h
+    SharedMemoryCore.h
+    SharedMemoryCore.cpp
+    PipeCore.h
+    PipeCore.cpp
 )
 
 # --- Qt Widgets ---
