@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WorkerWindow</class>
+ <widget class="QMainWindow" name="WorkerWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Worker Terminal</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow { background-color: #1e1e1e; color: #ffffff; }
+QLineEdit, QSpinBox { background-color: #2d2d2d; border: 1px solid #3e3e3e; color: #ffffff; padding: 5px; border-radius: 4px; }
+QPushButton { background-color: #007acc; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #0098ff; }
+QPushButton#btnVote { background-color: #28a745; }
+QPushButton#btnVote:hover { background-color: #34c759; }
+QListWidget { background-color: #252526; border: 1px solid #3e3e3e; color: #cccccc; }
+QLabel { color: #cccccc; }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>PHASE 1: GENERATE IDEAS</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-weight: bold; color: #007acc;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QListWidget" name="listMyIdeas"/>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLineEdit" name="lineEditIdea">
+        <property name="placeholderText">
+         <string>Enter idea...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnSend">
+        <property name="text">
+         <string>Send Idea</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>PHASE 2: VOTING (Look at Supervisor screen)</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-weight: bold; color: #28a745;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Vote for ID #:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBoxVoteID">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnVote">
+        <property name="text">
+         <string>VOTE</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
