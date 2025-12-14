@@ -5,14 +5,15 @@
 #include <random>
 #include <QTimer>
 #include <QMessageBox>
+#include <QTimer>
 #include <algorithm>
 #include <QFile>
 #include <QTextStream>
 #include <QDateTime>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), m_ui(std::make_unique<Ui::MainWindow>()),
-      m_board(nullptr), m_timer(nullptr), m_timeLeft(0)
+    : QMainWindow(parent), m_ui(std::make_unique<Ui::MainWindow>()), m_board(nullptr),
+      m_timer(nullptr), m_timeLeft(0)
 {
     m_ui->setupUi(this);
 
@@ -54,7 +55,7 @@ Ui::MainWindow *MainWindow::getWindow()
     return m_ui.get();
 }
 
-void MainWindow::SetBoard(VirtualBoard *board)
+void MainWindow::SetBoard(std::unique_ptr<VirtualBoard> &board)
 {
     m_board = board;
     m_timeLeft = 180;
@@ -98,7 +99,17 @@ void MainWindow::UpdateUI()
                                .arg(QString::fromStdString(idea.text))
                                .arg(idea.worker_id)
                                .arg(idea.votes);
-        m_ui->listIdeas->addItem(itemText);
+
+        if (i < m_ui->listIdeas->count())
+        {
+            // Update existing item
+            m_ui->listIdeas->item(i)->setText(itemText);
+        }
+        else
+        {
+            // Add new item
+            m_ui->listIdeas->addItem(itemText);
+        }
     }
 
     if (m_timeLeft <= 0)
@@ -112,8 +123,7 @@ void MainWindow::EndSession()
     if (m_timer)
     {
         m_timer->stop();
-        delete m_timer;
-        m_timer = nullptr;
+        m_timer.reset();
     }
 
     if (m_board)
@@ -174,9 +184,9 @@ void MainWindow::FinishVoting()
     for (int i = 0; i < std::min(3, (int)ideas.size()); ++i)
     {
         QString itemText = QString("#%1: %2 [%3 votes]")
-        .arg(i + 1)
-            .arg(QString::fromStdString(ideas[i].text))
-            .arg(ideas[i].votes);
+                               .arg(i + 1)
+                               .arg(QString::fromStdString(ideas[i].text))
+                               .arg(ideas[i].votes);
         m_ui->listIdeas->addItem(itemText);
     }
 

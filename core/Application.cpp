@@ -33,7 +33,7 @@ Application::Application(int &argc, char **argv)
         m_window = std::make_unique<MainWindow>();
         m_window->SetBoard(m_board.get());
 
-               // 5. Create Process Manager
+        // 5. Create Process Manager
         m_procManager = std::make_unique<ProcessManager>();
     }
 }

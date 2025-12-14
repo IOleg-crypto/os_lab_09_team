@@ -2,11 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <memory>
+#include <VirtualBoard.h>
 
-// Forward declarations
-class VirtualBoard;
-class QTimer;
+#include <memory>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -24,7 +22,7 @@ public:
     ~MainWindow();
 
     Ui::MainWindow *getWindow();
-    void SetBoard(VirtualBoard *board);
+    void SetBoard(std::unique_ptr<VirtualBoard>&board);
 
 private slots:
     void UpdateUI();
@@ -34,9 +32,9 @@ private slots:
 private:
     std::unique_ptr<Ui::MainWindow> m_ui;
 
-           // Logic
-    VirtualBoard *m_board;
-    QTimer *m_timer;
+    // Logic
+    std::unique_ptr<VirtualBoard>m_board;
+    std::unique_ptr<QTimer> m_timer;
     int m_timeLeft;
 };
 
