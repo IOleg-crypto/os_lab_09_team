@@ -22,7 +22,7 @@ Application::Application(int &argc, char **argv)
         m_workerId = parser.value(workerOption).toInt();
     }
 
-           // 2. Create Logic (IPC)
+    // 2. Create Logic (IPC)
     m_board = std::make_unique<VirtualBoard>(m_isHost);
 
     if (m_isHost)
@@ -30,10 +30,10 @@ Application::Application(int &argc, char **argv)
         // 3. Create UI (Only for Supervisor)
         m_window = std::make_unique<MainWindow>();
 
-               // 4. DEPENDENCY INJECTION
-        m_window->SetBoard(m_board.get());
+        // 4. DEPENDENCY INJECTION
+        m_window->SetBoard(m_board);
 
-               // 5. Create Process Manager
+        // 5. Create Process Manager
         m_procManager = std::make_unique<ProcessManager>();
     }
 }
@@ -54,12 +54,12 @@ int Application::Run()
         m_window->show();
         // Launch 3 workers
         m_procManager->StartWorkers(3, QApplication::applicationFilePath());
-        return m_app->exec();  // <-- RETURN тут є!
+        return m_app->exec(); // <-- RETURN тут є!
     }
     else
     {
         // WORKER MODE
-        return RunWorker();  // <-- RETURN тут є!
+        return RunWorker(); // <-- RETURN тут є!
     }
 }
 
@@ -71,27 +71,20 @@ int Application::RunWorker()
     std::uniform_int_distribution<> ideaDelay(5, 15); // 5-15 seconds between ideas
     std::uniform_int_distribution<> ideaType(0, 9);
 
-           // Pool of idea templates
+    // Pool of idea templates
     std::vector<std::string> ideaTemplates = {
-        "Implement AI-powered code review",
-        "Add real-time collaboration features",
-        "Create mobile app version",
-        "Integrate blockchain for security",
-        "Develop dark mode theme",
-        "Add voice control interface",
-        "Implement automated testing suite",
-        "Create plugin marketplace",
-        "Add multilingual support",
-        "Develop VR interface"
-    };
+        "Implement AI-powered code review",  "Add real-time collaboration features",
+        "Create mobile app version",         "Integrate blockchain for security",
+        "Develop dark mode theme",           "Add voice control interface",
+        "Implement automated testing suite", "Create plugin marketplace",
+        "Add multilingual support",          "Develop VR interface"};
 
-           // PHASE 1: Generate Ideas (until stopped)
+    // PHASE 1: Generate Ideas (until stopped)
     int ideasSubmitted = 0;
     while (!m_board->IsSessionStopped() && ideasSubmitted < 10) // Max 10 ideas per worker
     {
         // Generate unique idea
-        std::string idea = ideaTemplates[ideaType(gen)] +
-                           " (Worker " + std::to_string(m_workerId) +
+        std::string idea = ideaTemplates[ideaType(gen)] + " (Worker " + std::to_string(m_workerId) +
                            " v" + std::to_string(ideasSubmitted + 1) + ")";
 
         if (m_board->SubmitIdea(idea, m_workerId))
@@ -99,15 +92,20 @@ int Application::RunWorker()
             ideasSubmitted++;
         }
 
-               // Random delay between ideas
+        // Random delay between ideas
         int delay = ideaDelay(gen) * 1000;
         QThread::msleep(delay);
     }
 
-           // PHASE 2: Wait for voting phase
-    QThread::sleep(2);
+    // PHASE 2: Wait for voting phase (Wait for Supervisor to stop session)
+    while (!m_board->IsSessionStopped())
+    {
+        QThread::msleep(100);
+    }
 
-           // PHASE 3: Vote for top ideas
+    QThread::sleep(1); // Brief pause before voting
+
+    // PHASE 3: Vote for top ideas
     auto allIdeas = m_board->FetchAllIdeas();
 
     if (!allIdeas.empty())
@@ -122,7 +120,7 @@ int Application::RunWorker()
             }
         }
 
-               // Shuffle and pick top 3
+        // Shuffle and pick top 3
         std::shuffle(votableIndices.begin(), votableIndices.end(), gen);
         int votesToCast = std::min(3, (int)votableIndices.size());
 
@@ -134,5 +132,5 @@ int Application::RunWorker()
         }
     }
 
-    return 0;  // <-- EXIT success
+    return 0; // <-- EXIT success
 }
