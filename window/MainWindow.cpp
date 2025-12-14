@@ -41,7 +41,7 @@ void MainWindow::UpdateUI()
                           .arg(m_timeLeft % 60, 2, 10, QChar('0'));
 
     // TODO: Update specific label in UI if exists.
-    // m_ui->lblStatus->setText(timeStr);
+    m_ui->lblStatus->setText(timeStr);
 
     // Refresh Ideas
     m_ui->listIdeas->clear();
@@ -62,9 +62,27 @@ void MainWindow::EndSession()
 {
     if (m_timer)
         m_timer->stop();
+
     if (m_board)
     {
         m_board->StopSession();
         m_board->SaveReport("report.txt");
+
+        auto ideas = m_board->FetchAllIdeas();
+
+        std::sort(ideas.begin(), ideas.end(),
+                  [](const Idea &a, const Idea &b) { return a.votes > b.votes; });
+
+        m_ui->listIdeas->clear();
+        m_ui->listIdeas->addItem("TOP 3 IDEAS");
+
+        for (int i = 0; i < std::min(3, (int)ideas.size()); ++i)
+        {
+            QString text = QString("#%1: %2 [%3 votes]")
+            .arg(i + 1)
+                .arg(QString::fromStdString(ideas[i].text))
+                .arg(ideas[i].votes);
+            m_ui->listIdeas->addItem(text);
+        }
     }
 }
