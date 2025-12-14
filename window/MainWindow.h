@@ -1,12 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QApplication>
 #include <QMainWindow>
 #include <memory>
 
-#include <ipc/VirtualBoard.h>
-#include <ipc/ProcessManager.h>
+// Forward declarations
+class VirtualBoard;
+class QTimer;
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -23,20 +23,21 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-public:
-public:
     Ui::MainWindow *getWindow();
     void SetBoard(VirtualBoard *board);
+
+private slots:
+    void UpdateUI();
+    void EndSession();
+    void FinishVoting();
 
 private:
     std::unique_ptr<Ui::MainWindow> m_ui;
 
-    // Logic
-    VirtualBoard *m_board = nullptr;
-    QTimer *m_timer = nullptr;
+           // Logic
+    VirtualBoard *m_board;
+    QTimer *m_timer;
     int m_timeLeft;
-
-    void UpdateUI();
-    void EndSession();
 };
+
 #endif // MAINWINDOW_H

@@ -2,6 +2,8 @@
 #define APPLICATION_H
 
 #include "window/MainWindow.h"
+#include "ipc/VirtualBoard.h"
+#include "ipc/ProcessManager.h"
 
 #include <QApplication>
 #include <memory>
@@ -12,7 +14,7 @@ private:
     std::unique_ptr<QApplication> m_app;
     std::unique_ptr<MainWindow> m_window;
 
-    // Logic (From IPC Lib)
+           // Logic (From IPC Lib)
     std::unique_ptr<VirtualBoard> m_board;
     std::unique_ptr<ProcessManager> m_procManager;
 
@@ -23,9 +25,12 @@ public:
     Application(int &argc, char **argv);
     ~Application();
 
-public:
-    // Init and run application
+           // Init and run application
     int Run();
+
+private:
+    // Worker-specific logic
+    int RunWorker();
 };
 
 #endif // APPLICATION_H
