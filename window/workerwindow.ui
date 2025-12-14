@@ -7,53 +7,31 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>500</height>
+    <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Worker Terminal</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMainWindow {
-    background-color: #1e1e1e;
-    color: #ffffff;
-}
-QLineEdit {
-    background-color: #2d2d2d;
-    border: 1px solid #3e3e3e;
-    color: #ffffff;
-    padding: 5px;
-    border-radius: 4px;
-}
-QPushButton {
-    background-color: #007acc;
-    color: white;
-    border: none;
-    padding: 8px;
-    border-radius: 4px;
-}
-QPushButton:hover {
-    background-color: #0098ff;
-}
-QPushButton:disabled {
-    background-color: #333333;
-    color: #888888;
-}
-QListWidget {
-    background-color: #252526;
-    border: 1px solid #3e3e3e;
-    color: #cccccc;
-}</string>
+   <string notr="true">QMainWindow { background-color: #1e1e1e; color: #ffffff; }
+QLineEdit, QSpinBox { background-color: #2d2d2d; border: 1px solid #3e3e3e; color: #ffffff; padding: 5px; border-radius: 4px; }
+QPushButton { background-color: #007acc; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #0098ff; }
+QPushButton#btnVote { background-color: #28a745; }
+QPushButton#btnVote:hover { background-color: #34c759; }
+QListWidget { background-color: #252526; border: 1px solid #3e3e3e; color: #cccccc; }
+QLabel { color: #cccccc; }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>MY IDEAS:</string>
+       <string>PHASE 1: GENERATE IDEAS</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">font-weight: bold; font-size: 14px; color: #007acc;</string>
+       <string notr="true">font-weight: bold; color: #007acc;</string>
       </property>
      </widget>
     </item>
@@ -72,7 +50,49 @@ QListWidget {
       <item>
        <widget class="QPushButton" name="btnSend">
         <property name="text">
-         <string>Send</string>
+         <string>Send Idea</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>PHASE 2: VOTING (Look at Supervisor screen)</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-weight: bold; color: #28a745;</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Vote for ID #:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBoxVoteID">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnVote">
+        <property name="text">
+         <string>VOTE</string>
         </property>
        </widget>
       </item>

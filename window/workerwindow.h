@@ -3,14 +3,14 @@
 
 #include <QMainWindow>
 #include <memory>
-// Додаємо ці інклуди, щоб Qt знав типи об'єктів
 #include <QLineEdit>
 #include <QPushButton>
 #include <QListWidget>
+#include <QSpinBox> // Додали для лічильника
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QMessageBox> // Додали для повідомлень
 
-// Твій клас для зв'язку (перевір шлях, якщо він в іншій папці)
 #include "../ipc/VirtualBoard.h"
 
 namespace Ui {
@@ -22,12 +22,12 @@ class WorkerWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    // Конструктор приймає ID воркера і вказівник на дошку
     explicit WorkerWindow(int workerId, VirtualBoard* board, QWidget *parent = nullptr);
     ~WorkerWindow();
 
 private slots:
-    void onSendClicked(); // Слот для натискання кнопки
+    void onSendClicked();
+    void onVoteClicked(); // Новий слот
 
 private:
     std::unique_ptr<Ui::WorkerWindow> ui;

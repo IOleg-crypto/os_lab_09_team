@@ -1,8 +1,5 @@
 #include "workerwindow.h"
-// ВАЖЛИВО: Оскільки файл називається workerwindow.ui (маленькими),
-// то інклуд має бути саме таким:
 #include "ui_workerwindow.h"
-
 #include <QDateTime>
 
 WorkerWindow::WorkerWindow(int workerId, VirtualBoard* board, QWidget *parent)
@@ -12,12 +9,12 @@ WorkerWindow::WorkerWindow(int workerId, VirtualBoard* board, QWidget *parent)
       m_workerId(workerId)
 {
     ui->setupUi(this);
-
-    // Встановимо заголовок
     setWindowTitle(QString("Worker #%1").arg(workerId));
 
-           // Підключимо кнопку
     connect(ui->btnSend, &QPushButton::clicked, this, &WorkerWindow::onSendClicked);
+
+    // Підключаємо нову кнопку голосування
+    connect(ui->btnVote, &QPushButton::clicked, this, &WorkerWindow::onVoteClicked);
 }
 
 WorkerWindow::~WorkerWindow() = default;
@@ -28,12 +25,36 @@ void WorkerWindow::onSendClicked()
     if (text.isEmpty()) return;
 
     if (m_board) {
-        // ТУТ БУЛА ПОМИЛКА з типами.
-        // Я поміняв аргументи місцями (текст, потім ID).
-        // Якщо знову буде помилка - поміняй назад: (m_workerId, text.toStdString())
+        // Відправляємо ідею
         m_board->SubmitIdea(text.toStdString(), m_workerId);
     }
 
     ui->listMyIdeas->addItem(text);
     ui->lineEditIdea->clear();
+}
+
+void WorkerWindow::onVoteClicked()
+{
+    if (!m_board) return;
+
+           // 1. Отримуємо номер ID з поля вводу
+    int targetId = ui->spinBoxVoteID->value(); // Це число (1, 2, 3...)
+
+           // 2. Отримуємо всі ідеї з сервера, щоб знайти потрібну
+    auto allIdeas = m_board->FetchAllIdeas();
+
+           // 3. Перевіряємо, чи існує така ідея
+           // (targetId - 1, бо люди рахують з 1, а програмісти з 0)
+    if (targetId > 0 && targetId <= (int)allIdeas.size()) {
+
+        // Знаходимо UUID (унікальний код) ідеї за її номером у списку
+        const auto& idea = allIdeas[targetId - 1];
+
+        // Голосуємо!
+        m_board->VoteForIdea(idea.uuid);
+
+        QMessageBox::information(this, "Voted", QString("Voted for idea #%1").arg(targetId));
+    } else {
+        QMessageBox::warning(this, "Error", "Invalid Idea ID!");
+    }
 }
