@@ -1,30 +1,35 @@
 #include "Application.h"
-#include "ipc/ProcessManager.h"
-#include "ipc/VirtualBoard.h"
 #include "../window/MainWindow.h"
 #include "../window/workerwindow.h"
+#include "ipc/ProcessManager.h"
+#include "ipc/VirtualBoard.h"
 
-#include <QCommandLineParser>
+#include <QString>
+#include <QStringList>
 #include <QThread>
 #include <vector>
+
 
 Application::Application(int &argc, char **argv)
     : m_app(std::make_unique<QApplication>(argc, argv)), m_isHost(true), m_workerId(0)
 {
     // 1. Parse Args
-    QCommandLineParser parser;
-    QCommandLineOption workerOption("worker", "Run as worker", "id");
-    parser.addOption(workerOption);
-    parser.process(*m_app);
-
-    if (parser.isSet(workerOption))
+    QStringList args = m_app->arguments();
+    for (int i = 0; i < args.count(); ++i)
     {
-        m_isHost = false;
-        m_workerId = parser.value(workerOption).toInt();
+        if (args[i] == "--worker" || args[i] == "-w")
+        {
+            if (i + 1 < args.count())
+            {
+                m_isHost = false;
+                m_workerId = args[i + 1].toInt();
+                break;
+            }
+        }
     }
 
-           // 2. Create Logic (IPC)
-           // Створюємо дошку (для воркера isHost = false)
+    // 2. Create Logic (IPC)
+    // Створюємо дошку (для воркера isHost = false)
     m_board = std::make_unique<VirtualBoard>(m_isHost);
 
     if (m_isHost)
@@ -70,15 +75,17 @@ int Application::RunWorker()
     // Ми його видаляємо, бо тепер у нас є графічний інтерфейс,
     // і ти сам будеш вводити ідеї руками.
 
-           // 1. Створюємо твоє вікно виконавця
-           // Передаємо ID і вказівник на дошку, щоб вікно могло слати дані
-           // Використовуємо 'new', щоб об'єкт жив поки працює програма
-    WorkerWindow *w = new WorkerWindow(m_workerId, m_board.get());
+    // 1. Створюємо твоє вікно виконавця
+    // Передаємо ID і вказівник на дошку, щоб вікно могло слати дані
+    // Використовуємо 'new', щоб об'єкт жив поки працює програма
+    // WorkerWindow *workerwindow = new WorkerWindow(m_workerId, std::move(m_board));
+    std::unique_ptr<WorkerWindow> worker =
+        std::make_unique<WorkerWindow>(m_workerId, std::move(m_board));
 
     // 2. Показуємо вікно
-    w->show();
+    worker->show();
 
-           // 3. Запускаємо головний цикл подій Qt
-           // Це дозволяє вікну реагувати на кліки, ввід тексту і не зависати.
+    // 3. Запускаємо головний цикл подій Qt
+    // Це дозволяє вікну реагувати на кліки, ввід тексту і не зависати.
     return m_app->exec();
 }
