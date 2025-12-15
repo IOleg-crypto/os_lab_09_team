@@ -1,19 +1,20 @@
 #ifndef WORKERWINDOW_H
 #define WORKERWINDOW_H
 
-#include <QMainWindow>
-#include <memory>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QListWidget>
-#include <QSpinBox> // лічильник
+#include "ipc/VirtualBoard.h"
 #include <QLabel>
+#include <QLineEdit>
+#include <QListWidget>
+#include <QMainWindow>
+#include <QMessageBox>
+#include <QPushButton>
+#include <QSpinBox>
 #include <QVBoxLayout>
-#include <QMessageBox> // повідомлень
+#include <memory>
 #include <set>
-#include "../ipc/VirtualBoard.h"
 
-namespace Ui {
+namespace Ui
+{
 class WorkerWindow;
 }
 
@@ -22,7 +23,8 @@ class WorkerWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit WorkerWindow(int workerId, VirtualBoard* board, QWidget *parent = nullptr);
+    explicit WorkerWindow(int workerId, std::unique_ptr<VirtualBoard> board,
+                          QWidget *parent = nullptr);
     ~WorkerWindow();
 
 private slots:
@@ -31,7 +33,7 @@ private slots:
 
 private:
     std::unique_ptr<Ui::WorkerWindow> ui;
-    VirtualBoard* m_board;
+    std::unique_ptr<VirtualBoard> m_board;
     int m_workerId;
     std::set<int> m_votedIds;
     void checkPhase();

@@ -27,11 +27,11 @@ QLabel { color: #cccccc; }</string>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="label">
-      <property name="text">
-       <string>PHASE 1: GENERATE IDEAS</string>
-      </property>
       <property name="styleSheet">
        <string notr="true">font-weight: bold; color: #007acc;</string>
+      </property>
+      <property name="text">
+       <string>PHASE 1: GENERATE IDEAS</string>
       </property>
      </widget>
     </item>
@@ -42,8 +42,20 @@ QLabel { color: #cccccc; }</string>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLineEdit" name="lineEditIdea">
+        <property name="tabletTracking">
+         <bool>true</bool>
+        </property>
+        <property name="autoFillBackground">
+         <bool>true</bool>
+        </property>
+        <property name="dragEnabled">
+         <bool>true</bool>
+        </property>
         <property name="placeholderText">
          <string>Enter idea...</string>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -59,17 +71,17 @@ QLabel { color: #cccccc; }</string>
     <item>
      <widget class="Line" name="line">
       <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+       <enum>Qt::Orientation::Horizontal</enum>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>PHASE 2: VOTING (Look at Supervisor screen)</string>
-      </property>
       <property name="styleSheet">
        <string notr="true">font-weight: bold; color: #28a745;</string>
+      </property>
+      <property name="text">
+       <string>PHASE 2: VOTING (Look at Supervisor screen)</string>
       </property>
      </widget>
     </item>

@@ -22,7 +22,7 @@ public:
     ~MainWindow();
 
     Ui::MainWindow *getWindow();
-    void SetBoard(std::unique_ptr<VirtualBoard>&board);
+    void SetBoard(std::unique_ptr<VirtualBoard>board);
 
 private slots:
     void UpdateUI();

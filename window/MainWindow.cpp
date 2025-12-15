@@ -2,14 +2,14 @@
 #include "./ui_MainWindow.h"
 #include "ipc/VirtualBoard.h"
 
-#include <random>
-#include <QTimer>
+#include <QDateTime>
+#include <QFile>
 #include <QMessageBox>
+#include <QTextStream>
 #include <QTimer>
 #include <algorithm>
-#include <QFile>
-#include <QTextStream>
-#include <QDateTime>
+#include <random>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), m_ui(std::make_unique<Ui::MainWindow>()), m_board(nullptr),
@@ -55,13 +55,13 @@ Ui::MainWindow *MainWindow::getWindow()
     return m_ui.get();
 }
 
-void MainWindow::SetBoard(std::unique_ptr<VirtualBoard> &board)
+void MainWindow::SetBoard(std::unique_ptr<VirtualBoard> board)
 {
-    m_board = board;
+    m_board = std::move(board);
     m_timeLeft = 180;
 
-    m_timer = new QTimer(this);
-    connect(m_timer, &QTimer::timeout, this, &MainWindow::UpdateUI);
+    m_timer = std::make_unique<QTimer>(this);
+    connect(m_timer.get(), &QTimer::timeout, this, &MainWindow::UpdateUI);
     m_timer->start(1000);
 
     UpdateUI();
@@ -82,9 +82,12 @@ void MainWindow::UpdateUI()
 
     m_ui->lblStatus->setText(timeStr);
 
-    if (m_timeLeft < 10) {
+    if (m_timeLeft < 10)
+    {
         m_ui->lblStatus->setStyleSheet("color: #ff7b72; font-weight: bold; font-size: 16px;");
-    } else {
+    }
+    else
+    {
         m_ui->lblStatus->setStyleSheet("color: #58a6ff; font-weight: bold; font-size: 14px;");
     }
 
@@ -144,14 +147,17 @@ void MainWindow::FinishVoting()
 
     auto ideas = m_board->FetchAllIdeas();
     int totalVotes = 0;
-    for (const auto& idea : ideas) totalVotes += idea.votes;
+    for (const auto &idea : ideas)
+        totalVotes += idea.votes;
 
-    if (totalVotes == 0 && !ideas.empty()) {
+    if (totalVotes == 0 && !ideas.empty())
+    {
         std::random_device rd;
         std::mt19937 gen(rd());
         std::uniform_int_distribution<> dist(0, ideas.size() - 1);
 
-        for(int i=0; i<10; ++i) {
+        for (int i = 0; i < 10; ++i)
+        {
             int idx = dist(gen);
             m_board->VoteForIdea(ideas[idx].uuid);
         }
@@ -161,19 +167,20 @@ void MainWindow::FinishVoting()
 
     m_ui->listIdeas->clear();
 
-    std::sort(ideas.begin(), ideas.end(), [](const Idea &a, const Idea &b) {
-        return a.votes > b.votes;
-    });
+    std::sort(ideas.begin(), ideas.end(),
+              [](const Idea &a, const Idea &b) { return a.votes > b.votes; });
 
     QFile file("lab9_report.txt");
-    if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)) {
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+    {
         QTextStream out(&file);
         out << "Date: " << QDateTime::currentDateTime().toString() << "\n";
 
         out << "WINNING IDEAS:\n";
-        for (int i = 0; i < std::min(3, (int)ideas.size()); ++i) {
-            out << "#" << (i+1) << ": " << QString::fromStdString(ideas[i].text)
-            << " (" << ideas[i].votes << " votes)\n";
+        for (int i = 0; i < std::min(3, (int)ideas.size()); ++i)
+        {
+            out << "#" << (i + 1) << ": " << QString::fromStdString(ideas[i].text) << " ("
+                << ideas[i].votes << " votes)\n";
         }
 
         out << "\n[System]: Total ideas generated: " << ideas.size() << "\n";

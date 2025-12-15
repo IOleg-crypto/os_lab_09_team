@@ -21,13 +21,18 @@ SharedMemoryCore::SharedMemoryCore(bool host) : m_isHost(host), m_hMapFile(NULL)
 
     if (m_hMapFile)
     {
+        bool alreadyExists = (GetLastError() == ERROR_ALREADY_EXISTS);
+
         m_pBoard = (BoardLayout *)MapViewOfFile(m_hMapFile, FILE_MAP_ALL_ACCESS, 0, 0,
                                                 sizeof(BoardLayout));
         if (m_isHost && m_pBoard)
         {
-            Lock();
-            memset(m_pBoard, 0, sizeof(BoardLayout));
-            Unlock();
+            if (!alreadyExists)
+            {
+                Lock();
+                memset(m_pBoard, 0, sizeof(BoardLayout));
+                Unlock();
+            }
         }
     }
 }
@@ -151,4 +156,9 @@ bool SharedMemoryCore::IsStopped()
     bool s = m_pBoard->is_stopped;
     Unlock();
     return s;
+}
+
+bool SharedMemoryCore::IsConnected() const
+{
+    return m_pBoard != nullptr;
 }
