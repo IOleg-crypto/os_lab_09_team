@@ -51,6 +51,13 @@ bool VirtualBoard::IsSessionStopped()
     return m_memoryCore->IsStopped();
 }
 
+bool VirtualBoard::IsConnected()
+{
+    if (!m_memoryCore)
+        return false;
+    return m_memoryCore->IsConnected();
+}
+
 // Generates a report file.
 // 1. Fetches all ideas.
 // 2. Sorts them by votes (Descending).

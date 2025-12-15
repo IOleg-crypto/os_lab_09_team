@@ -30,6 +30,7 @@ public:
 
     // Checks if the session has been stopped by the supervisor.
     bool IsSessionStopped();
+    bool IsConnected();
 
     // Reporting
     // Sorts ideas by votes and saves them to a text file.

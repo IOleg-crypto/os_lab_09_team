@@ -21,6 +21,7 @@ public:
 public:
     void SetStopped(bool stop);
     bool IsStopped();
+    bool IsConnected() const;
 
 private:
     HANDLE m_hMapFile;

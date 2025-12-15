@@ -1,13 +1,12 @@
 #include "Application.h"
-#include "../window/MainWindow.h"
-#include "../window/workerwindow.h"
+#include "window/MainWindow.h"
+#include "window/workerwindow.h"
 #include "ipc/ProcessManager.h"
 #include "ipc/VirtualBoard.h"
 
 #include <QString>
 #include <QStringList>
 #include <QThread>
-#include <vector>
 
 
 Application::Application(int &argc, char **argv)
