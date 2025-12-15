@@ -1,12 +1,18 @@
-add_library(window STATIC
+set(MAINWINDOW_SOURCES
     MainWindow.cpp
     MainWindow.h
     MainWindow.ui
-    workerwindow.h workerwindow.cpp
-    workerwindow.ui
 )
-
+set(WORKERWINDOW_SOURCES
+    WorkerWindow.h
+    WorkerWindow.cpp
+    WorkerWindow.ui
+)
 # --- Qt Widgets ---
+add_library(window STATIC
+    ${MAINWINDOW_SOURCES}
+    ${WORKERWINDOW_SOURCES}
+)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 

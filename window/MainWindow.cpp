@@ -10,10 +10,9 @@
 #include <algorithm>
 #include <random>
 
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), m_ui(std::make_unique<Ui::MainWindow>()), m_board(nullptr),
-      m_timer(nullptr), m_timeLeft(0)
+      m_timer(nullptr), m_timeLeft(0), m_votingTimeLeft(0)
 {
     m_ui->setupUi(this);
 
@@ -57,7 +56,9 @@ Ui::MainWindow *MainWindow::getWindow()
 
 void MainWindow::SetBoard(std::unique_ptr<VirtualBoard> board)
 {
+    // Transfer ownership of board
     m_board = std::move(board);
+    // Set timer for 3 minutes (180 seconds)
     m_timeLeft = 180;
 
     m_timer = std::make_unique<QTimer>(this);
@@ -72,6 +73,7 @@ void MainWindow::UpdateUI()
     if (!m_board)
         return;
 
+    // Decrement time and format string
     m_timeLeft--;
     int minutes = m_timeLeft / 60;
     int seconds = m_timeLeft % 60;
@@ -91,6 +93,7 @@ void MainWindow::UpdateUI()
         m_ui->lblStatus->setStyleSheet("color: #58a6ff; font-weight: bold; font-size: 14px;");
     }
 
+    // Refresh idea list from shared memory
     m_ui->listIdeas->clear();
     auto ideas = m_board->FetchAllIdeas();
 
@@ -121,22 +124,64 @@ void MainWindow::UpdateUI()
     }
 }
 
+void MainWindow::UpdateVotingUI()
+{
+    if (!m_board)
+        return;
+
+    m_votingTimeLeft--;
+    int minutes = m_votingTimeLeft / 60;
+    int seconds = m_votingTimeLeft % 60;
+
+    QString timeStr = QString("STATUS: Voting Phase... (%1:%2 remaining)")
+                          .arg(minutes, 2, 10, QChar('0'))
+                          .arg(seconds, 2, 10, QChar('0'));
+
+    m_ui->lblStatus->setText(timeStr);
+
+    // Refresh idea list to show votes
+    m_ui->listIdeas->clear();
+    auto ideas = m_board->FetchAllIdeas();
+
+    for (size_t i = 0; i < ideas.size(); ++i)
+    {
+        const auto &idea = ideas[i];
+        QString itemText = QString("#%1: %2 [Worker %3 | Votes: %4]")
+                               .arg(i + 1)
+                               .arg(QString::fromStdString(idea.text))
+                               .arg(idea.worker_id)
+                               .arg(idea.votes);
+
+        m_ui->listIdeas->addItem(itemText);
+    }
+}
+
 void MainWindow::EndSession()
 {
     if (m_timer)
     {
         m_timer->stop();
-        m_timer.reset();
+        m_timer->disconnect(); // Disconnect old slot
     }
 
     if (m_board)
     {
+        // Stop shared memory session (signal workers)
         m_board->StopSession();
 
-        m_ui->lblStatus->setText("STATUS: Voting Phase (Wait 30s)...");
+        m_ui->lblStatus->setText("STATUS: Voting Phase (Wait 3m)...");
         m_ui->lblStatus->setStyleSheet("color: #2ea043; font-weight: bold; font-size: 16px;");
 
-        QTimer::singleShot(30000, this, &MainWindow::FinishVoting);
+        // Start voting update loop
+        m_votingTimeLeft = 180; // 3 minutes
+        if (m_timer)
+        {
+            connect(m_timer.get(), &QTimer::timeout, this, &MainWindow::UpdateVotingUI);
+            m_timer->start(1000);
+        }
+
+        // 3 minutes = 180000 ms
+        QTimer::singleShot(180000, this, &MainWindow::FinishVoting);
     }
 }
 
@@ -145,6 +190,12 @@ void MainWindow::FinishVoting()
     if (!m_board)
         return;
 
+    if (m_timer)
+    {
+        m_timer->stop();
+    }
+
+    // Fetch final ideas to count votes
     auto ideas = m_board->FetchAllIdeas();
     int totalVotes = 0;
     for (const auto &idea : ideas)
@@ -167,6 +218,7 @@ void MainWindow::FinishVoting()
 
     m_ui->listIdeas->clear();
 
+    // Sort ideas by votes (descending)
     std::sort(ideas.begin(), ideas.end(),
               [](const Idea &a, const Idea &b) { return a.votes > b.votes; });
 
@@ -187,6 +239,7 @@ void MainWindow::FinishVoting()
         file.close();
     }
 
+    // Display top 3 in UI
     m_ui->listIdeas->addItem("TOP 3 IDEAS");
     for (int i = 0; i < std::min(3, (int)ideas.size()); ++i)
     {
