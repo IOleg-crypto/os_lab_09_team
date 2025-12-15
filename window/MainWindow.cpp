@@ -55,13 +55,13 @@ Ui::MainWindow *MainWindow::getWindow()
     return m_ui.get();
 }
 
-void MainWindow::SetBoard(std::unique_ptr<VirtualBoard> &board)
+void MainWindow::SetBoard(std::unique_ptr<VirtualBoard> board)
 {
-    m_board = board;
+    board = std::move(m_board);
     m_timeLeft = 180;
 
-    m_timer = new QTimer(this);
-    connect(m_timer, &QTimer::timeout, this, &MainWindow::UpdateUI);
+    m_timer = std::make_unique<QTimer>(this);
+    connect(m_timer.get(), &QTimer::timeout, this, &MainWindow::UpdateUI);
     m_timer->start(1000);
 
     UpdateUI();

@@ -31,7 +31,7 @@ Application::Application(int &argc, char **argv)
     {
         // 3. Create UI (Only for Supervisor)
         m_window = std::make_unique<MainWindow>();
-        m_window->SetBoard(m_board.get());
+        m_window->SetBoard(std::move(m_board));
 
         // 5. Create Process Manager
         m_procManager = std::make_unique<ProcessManager>();
