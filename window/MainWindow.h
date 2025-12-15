@@ -22,10 +22,11 @@ public:
     ~MainWindow();
 
     Ui::MainWindow *getWindow();
-    void SetBoard(std::unique_ptr<VirtualBoard>board);
+    void SetBoard(std::unique_ptr<VirtualBoard> board);
 
 private slots:
     void UpdateUI();
+    void UpdateVotingUI();
     void EndSession();
     void FinishVoting();
 
@@ -33,9 +34,10 @@ private:
     std::unique_ptr<Ui::MainWindow> m_ui;
 
     // Logic
-    std::unique_ptr<VirtualBoard>m_board;
+    std::unique_ptr<VirtualBoard> m_board;
     std::unique_ptr<QTimer> m_timer;
     int m_timeLeft;
+    int m_votingTimeLeft;
 };
 
 #endif // MAINWINDOW_H
