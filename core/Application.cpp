@@ -1,6 +1,6 @@
 #include "Application.h"
 #include "window/MainWindow.h"
-#include "window/workerwindow.h"
+#include "window/WorkerWindow.h"
 #include "ipc/ProcessManager.h"
 #include "ipc/VirtualBoard.h"
 

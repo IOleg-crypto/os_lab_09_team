@@ -1,4 +1,4 @@
-#include "workerwindow.h"
+#include "WorkerWindow.h"
 #include "ui_workerwindow.h"
 #include <QDateTime>
 #include <QMessageBox>
@@ -18,6 +18,7 @@ WorkerWindow::WorkerWindow(int workerId, std::unique_ptr<VirtualBoard> board, QW
     // User wants to be able to change ID even before voting starts
     ui->spinBoxVoteID->setEnabled(true);
 
+    // Timer to check connection status and phase
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this,
             [this]()
@@ -32,6 +33,7 @@ WorkerWindow::WorkerWindow(int workerId, std::unique_ptr<VirtualBoard> board, QW
                     return;
                 }
 
+                // Check if supervisor stopped session (Voting Phase)
                 if (m_board && m_board->IsSessionStopped())
                 {
                     ui->lineEditIdea->setEnabled(false);
@@ -56,6 +58,7 @@ void WorkerWindow::onSendClicked()
 
     if (m_board)
     {
+        // Send idea to shared memory
         m_board->SubmitIdea(text.toStdString(), m_workerId);
     }
 
@@ -79,6 +82,7 @@ void WorkerWindow::onVoteClicked()
     auto allIdeas = m_board->FetchAllIdeas();
     if (targetId > 0 && targetId <= (int)allIdeas.size())
     {
+        // Send vote to shared memory
         const auto &idea = allIdeas[targetId - 1];
         m_board->VoteForIdea(idea.uuid);
 

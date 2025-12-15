@@ -13,11 +13,11 @@ class Application
 private:
     std::unique_ptr<QApplication> m_app;
     std::unique_ptr<MainWindow> m_window;
-
-           // Logic (From IPC Lib)
+private:
+    // Logic (From IPC Lib)
     std::unique_ptr<VirtualBoard> m_board;
     std::unique_ptr<ProcessManager> m_procManager;
-
+private:
     bool m_isHost;
     int m_workerId;
 
@@ -25,7 +25,7 @@ public:
     Application(int &argc, char **argv);
     ~Application();
 
-           // Init and run application
+    // Init and run application
     int Run();
 
 private:

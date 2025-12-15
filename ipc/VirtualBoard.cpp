@@ -20,6 +20,9 @@ bool VirtualBoard::SubmitIdea(const std::string &text, int workerId)
 {
     if (!m_memoryCore)
         return false;
+    if (!m_memoryCore)
+        return false;
+    // Delegate to shared memory
     return m_memoryCore->AddIdea(text, workerId);
 }
 
@@ -27,6 +30,9 @@ std::vector<Idea> VirtualBoard::FetchAllIdeas()
 {
     if (!m_memoryCore)
         return {};
+    if (!m_memoryCore)
+        return {};
+    // Retrieve collection of ideas
     return m_memoryCore->GetAllIdeas();
 }
 
