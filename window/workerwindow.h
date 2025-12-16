@@ -8,10 +8,12 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QRegularExpressionValidator>
 #include <QSpinBox>
 #include <QVBoxLayout>
 #include <memory>
 #include <set>
+
 
 namespace Ui
 {
@@ -34,6 +36,7 @@ private slots:
 private:
     std::unique_ptr<Ui::WorkerWindow> ui;
     std::unique_ptr<VirtualBoard> m_board;
+    std::unique_ptr<QRegularExpressionValidator> m_validator;
     int m_workerId;
     std::set<int> m_votedIds;
     void checkPhase();

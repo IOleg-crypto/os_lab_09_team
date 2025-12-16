@@ -2,6 +2,8 @@
 #include "ui_workerwindow.h"
 #include <QDateTime>
 #include <QMessageBox>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 #include <QTimer>
 
 WorkerWindow::WorkerWindow(int workerId, std::unique_ptr<VirtualBoard> board, QWidget *parent)
@@ -10,6 +12,12 @@ WorkerWindow::WorkerWindow(int workerId, std::unique_ptr<VirtualBoard> board, QW
 {
     ui->setupUi(this);
     setWindowTitle(QString("Worker #%1").arg(workerId));
+
+    // Validator: Allow everything except numbers
+    QRegularExpression rx("^[^0-9]*$");
+    // Initialize unique_ptr, NO parent to avoid double-free (unique_ptr owns it)
+    m_validator = std::make_unique<QRegularExpressionValidator>(rx);
+    ui->lineEditIdea->setValidator(m_validator.get());
 
     connect(ui->btnSend, &QPushButton::clicked, this, &WorkerWindow::onSendClicked);
     connect(ui->btnVote, &QPushButton::clicked, this, &WorkerWindow::onVoteClicked);
