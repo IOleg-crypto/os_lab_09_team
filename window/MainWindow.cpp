@@ -181,7 +181,7 @@ void MainWindow::EndSession()
         }
 
         // 3 minutes = 180000 ms
-        QTimer::singleShot(180000, this, &MainWindow::FinishVoting);
+        QTimer::singleShot(30, this, &MainWindow::FinishVoting);
     }
 }
 
