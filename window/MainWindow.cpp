@@ -54,12 +54,15 @@ Ui::MainWindow *MainWindow::getWindow()
     return m_ui.get();
 }
 
-void MainWindow::SetBoard(std::unique_ptr<VirtualBoard> board)
+void MainWindow::SetBoard(std::unique_ptr<VirtualBoard> board, const QString &ipcMode)
 {
     // Transfer ownership of board
     m_board = std::move(board);
     // Set timer for 3 minutes (180 seconds)
     m_timeLeft = 180;
+
+    // Display IPC Mode in Window Title
+    this->setWindowTitle(QString("Brainstorm Supervisor [ADMIN PANEL] - IPC: %1").arg(ipcMode));
 
     m_timer = std::make_unique<QTimer>(this);
     connect(m_timer.get(), &QTimer::timeout, this, &MainWindow::UpdateUI);

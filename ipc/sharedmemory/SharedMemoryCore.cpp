@@ -158,7 +158,9 @@ bool SharedMemoryCore::IsStopped()
     return s;
 }
 
-bool SharedMemoryCore::IsConnected() const
+bool SharedMemoryCore::IsConnected()
 {
+    // Simple check: is map file valid?
+    // In real scenario, we might check if host process is alive
     return m_pBoard != nullptr;
 }

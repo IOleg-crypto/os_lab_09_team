@@ -16,6 +16,7 @@ set(PIPE_SOURCES
 set(LOGIC_SOURCES
     VirtualBoard.cpp
     VirtualBoard.h
+    IIpcCore.h
     ProcessManager.cpp
     ProcessManager.h
 )

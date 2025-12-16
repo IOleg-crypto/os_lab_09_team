@@ -10,7 +10,7 @@ ProcessManager::~ProcessManager()
     StopAllWorkers();
 }
 
-void ProcessManager::StartWorkers(int count, const QString &executablePath)
+void ProcessManager::StartWorkers(int count, const QString &executablePath, const QString &ipcMode)
 {
     for (int i = 0; i < count; ++i)
     {
@@ -19,6 +19,8 @@ void ProcessManager::StartWorkers(int count, const QString &executablePath)
         QStringList args;
         // Pass worker flag and unique ID
         args << "--worker" << QString::number(i + 1);
+        // Pass IPC mode
+        args << "--ipc" << ipcMode;
 
         process->start(executablePath, args);
         process->waitForStarted(); // Ensure it started

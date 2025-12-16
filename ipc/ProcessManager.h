@@ -12,8 +12,8 @@ public:
     ~ProcessManager();
 
     // Spawns 'count' worker processes using the executable at 'executablePath'.
-    // Passes the --worker and ID arguments.
-    void StartWorkers(int count, const QString &executablePath);
+    // Passes the --worker and ID arguments, and --ipc argument.
+    void StartWorkers(int count, const QString &executablePath, const QString &ipcMode);
 
     // Terminates all running worker processes. First tries soft terminate, then force kill.
     void StopAllWorkers();
