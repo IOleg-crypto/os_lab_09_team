@@ -21,14 +21,23 @@ Application::Application(int &argc, char **argv)
             {
                 m_isHost = false;
                 m_workerId = args[i + 1].toInt();
-                break;
+            }
+        }
+        else if (args[i] == "--ipc")
+        {
+            if (i + 1 < args.count())
+            {
+                if (args[i + 1] == "pipe")
+                    m_ipcType = VirtualBoard::IpcType::Pipes;
+                else
+                    m_ipcType = VirtualBoard::IpcType::SharedMemory;
             }
         }
     }
 
     // 2. Create Logic (IPC)
     // Створюємо дошку (для воркера isHost = false)
-    m_board = std::make_unique<VirtualBoard>(m_isHost);
+    m_board = std::make_unique<VirtualBoard>(m_isHost, m_ipcType);
 
     if (m_isHost)
     {
