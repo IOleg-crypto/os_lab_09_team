@@ -1,31 +1,31 @@
 # os_9_team
 
-A C++ project using Qt 6 and CMake.
+C++ проект, що використовує Qt 6 та CMake.
 
-## Prerequisites
+## Вимоги
 
-- **CMake**: 3.29 or newer.
-- **Qt**: Version 6 (e.g., 6.9.3) with Widgets component.
-- **C++ Compiler**: Compatible with C++23 standard.
+- **CMake**: 3.29 або новіше.
+- **Qt**: Версія 6 (наприклад, 6.9.3) з компонентом Widgets.
+- **Компілятор C++**: Сумісний зі стандартом C++23.
 
-## Build Instructions
+## Інструкції зі збірки
 
 ### Windows (PowerShell/Git Bash)
 
-**Clone the repository** (ensure submodules are initialized):
+**Клонування репозиторію** (переконайтеся, що підмодулі ініціалізовані):
 
-**Using HTTPS:**
+**Використовуючи HTTPS:**
 
 ```powershell
    git clone --recursive https://github.com/IOleg-crypto/os_lab_09_team.git
    cd os_lab_09_team
 ```
 
-**Using SSH:**
+**Використовуючи SSH:**
 
 ```powershell
    git clone --recursive git@github.com:IOleg-crypto/os_lab_09_team.git
    cd os_lab_09_team
 ```
 
-**Use QT Creator to open the project and build it**
+**Використовуйте Qt Creator для відкриття та збірки проекту**

@@ -53,7 +53,7 @@ WorkerWindow::WorkerWindow(int workerId, std::unique_ptr<VirtualBoard> board, QW
                     ui->label_2->setStyleSheet("color: #28a745; font-weight: bold;");
                 }
             });
-    timer->start(1000);
+    // timer->start(1000);
 }
 
 WorkerWindow::~WorkerWindow() = default;
@@ -70,7 +70,7 @@ void WorkerWindow::onSendClicked()
         m_board->SubmitIdea(text.toStdString(), m_workerId);
     }
 
-    ui->listMyIdeas->addItem(text);
+    // ui->listMyIdeas->addItem(text);
     ui->lineEditIdea->clear();
 }
 

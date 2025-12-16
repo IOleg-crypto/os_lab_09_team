@@ -13,6 +13,8 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
+class QTimer;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -27,6 +29,7 @@ public:
 
 private slots:
     void UpdateUI();
+    void UpdateIPCData();
     void UpdateVotingUI();
     void EndSession();
     void FinishVoting();
@@ -37,6 +40,7 @@ private:
     // Logic
     std::unique_ptr<VirtualBoard> m_board;
     std::unique_ptr<QTimer> m_timer;
+    std::unique_ptr<QTimer> m_ipcTimer;
     int m_timeLeft;
     int m_votingTimeLeft;
 };

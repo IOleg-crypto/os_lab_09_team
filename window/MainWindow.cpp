@@ -68,6 +68,11 @@ void MainWindow::SetBoard(std::unique_ptr<VirtualBoard> board, const QString &ip
     connect(m_timer.get(), &QTimer::timeout, this, &MainWindow::UpdateUI);
     m_timer->start(1000);
 
+    // High frequency timer for IPC (especially for Pipes)
+    m_ipcTimer = std::make_unique<QTimer>(this);
+    connect(m_ipcTimer.get(), &QTimer::timeout, this, &MainWindow::UpdateIPCData);
+    m_ipcTimer->start(1); // 100ms interval for responsive idea updates
+
     UpdateUI();
 }
 
@@ -96,10 +101,22 @@ void MainWindow::UpdateUI()
         m_ui->lblStatus->setStyleSheet("color: #58a6ff; font-weight: bold; font-size: 14px;");
     }
 
-    // Refresh idea list from shared memory
-    m_ui->listIdeas->clear();
+    if (m_timeLeft <= 0)
+    {
+        EndSession();
+    }
+}
+
+void MainWindow::UpdateIPCData()
+{
+    if (!m_board)
+        return;
+
+    // Refresh idea list from shared memory / pipe
+    // This calls ServerProcessPendingConnection internally for pipes
     auto ideas = m_board->FetchAllIdeas();
 
+    m_ui->listIdeas->clear();
     for (size_t i = 0; i < ideas.size(); ++i)
     {
         const auto &idea = ideas[i];
@@ -108,22 +125,7 @@ void MainWindow::UpdateUI()
                                .arg(QString::fromStdString(idea.text))
                                .arg(idea.worker_id)
                                .arg(idea.votes);
-
-        if (i < m_ui->listIdeas->count())
-        {
-            // Update existing item
-            m_ui->listIdeas->item(i)->setText(itemText);
-        }
-        else
-        {
-            // Add new item
-            m_ui->listIdeas->addItem(itemText);
-        }
-    }
-
-    if (m_timeLeft <= 0)
-    {
-        EndSession();
+        m_ui->listIdeas->addItem(itemText);
     }
 }
 

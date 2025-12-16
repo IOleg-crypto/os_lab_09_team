@@ -4,17 +4,18 @@
 #include "../IIpcCore.h"
 #include "Protocol.h"
 
+#include <mutex>
 #include <string>
 #include <vector>
 #include <windows.h>
 
-
 class PipeCore : public IIpcCore
 {
 public:
-    PipeCore(bool host);
-    ~PipeCore();
-    // IIpcCore Implementation
+    explicit PipeCore(bool host);
+    ~PipeCore() override;
+
+    // ---- IIpcCore implementation ----
     bool AddIdea(const std::string &text, int worker_id) override;
     std::vector<Idea> GetAllIdeas() override;
     void Vote(const std::string &uuid) override;
@@ -23,28 +24,32 @@ public:
     bool IsStopped() override;
     bool IsConnected() override;
 
-private:
-    // Server internals
-    void ServerProcessPendingConnection();
-    std::vector<Idea> ServerGetIdeasLocal();
+    // ВАЖЛИВО:
+    // Викликається ТІЛЬКИ якщо m_isHost == true
+    // Запускати в окремому потоці
+    void ServerRun();
 
-    // Client internals
+private:
+    // ---- Client internals ----
     void ClientAddIdea(const std::string &text, int worker_id);
     std::vector<Idea> ClientGetAllIdeas();
     bool ClientIsStopped();
     void ClientVote(const std::string &uuid);
 
-private:
-    bool m_isHost;
-    bool m_server_stopped_flag;
-    std::vector<Idea> m_serverIdeas;
-
     bool SendRequest(PipeCmd cmd, const void *dataIn, int sizeIn, void *dataOut, int sizeOut,
                      int *bytesRead);
 
-private:
-    // UUID generation
+    // ---- Utils ----
     void GenerateUUID(char *buffer);
+
+private:
+    bool m_isHost{false};
+    bool m_server_stopped_flag{false};
+
+    HANDLE m_hPipe{INVALID_HANDLE_VALUE};
+
+    std::vector<Idea> m_serverIdeas;
+    std::mutex m_ideasMutex;
 };
 
 #endif // PIPE_CORE_H
