@@ -5,10 +5,17 @@
 
 // Constructor: Initializes the low-level Shared Memory Core.
 // If isHost is true, it creates the memory mapping. If false, it opens existing one.
-VirtualBoard::VirtualBoard(bool isHost) : m_isHost(isHost)
+// Constructor: Initializes the selected IPC Core.
+VirtualBoard::VirtualBoard(bool isHost, IpcType type) : m_isHost(isHost)
 {
-    // Composition in action: We own the SharedMemoryCore object.
-    m_memoryCore = std::make_unique<SharedMemoryCore>(isHost);
+    if (type == IpcType::Pipes)
+    {
+        m_memoryCore = std::make_unique<PipeCore>(isHost);
+    }
+    else
+    {
+        m_memoryCore = std::make_unique<SharedMemoryCore>(isHost);
+    }
 }
 
 VirtualBoard::~VirtualBoard()

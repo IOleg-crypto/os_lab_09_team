@@ -1,17 +1,25 @@
 #ifndef VIRTUAL_BOARD_H
 #define VIRTUAL_BOARD_H
 
-#include "sharedmemory/SharedMemoryCore.h"
-#include <Protocol.h>
+#include "IIpcCore.h"
 #include <memory>
 #include <string>
 #include <vector>
 
+// Forward declarations to avoid heavy includes if possible, or just include
+#include "pipe/PipeCore.h"
+#include "sharedmemory/SharedMemoryCore.h"
+
 class VirtualBoard
 {
 public:
-    // Host mode: Creates SHM. Client mode: Opens SHM.
-    VirtualBoard(bool isHost);
+    enum class IpcType
+    {
+        SharedMemory,
+        Pipes
+    };
+    // Host mode: Creates SHM/Pipe. Client mode: Opens SHM/Pipe.
+    VirtualBoard(bool isHost, IpcType type = IpcType::SharedMemory);
     ~VirtualBoard();
 
     // Core Logic
@@ -37,8 +45,8 @@ public:
     void SaveReport(const std::string &filename);
 
 private:
-    // IPC Core component (Composition)
-    std::unique_ptr<SharedMemoryCore> m_memoryCore;
+    // IPC Core component (Polymorphic)
+    std::unique_ptr<IIpcCore> m_memoryCore;
     bool m_isHost;
 };
 

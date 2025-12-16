@@ -1,13 +1,12 @@
 #include "Application.h"
-#include "window/MainWindow.h"
-#include "window/WorkerWindow.h"
 #include "ipc/ProcessManager.h"
 #include "ipc/VirtualBoard.h"
+#include "window/MainWindow.h"
+#include "window/WorkerWindow.h"
 
 #include <QString>
 #include <QStringList>
 #include <QThread>
-
 
 Application::Application(int &argc, char **argv)
     : m_app(std::make_unique<QApplication>(argc, argv)), m_isHost(true), m_workerId(0)
@@ -35,10 +34,14 @@ Application::Application(int &argc, char **argv)
     {
         // 3. Create UI (Only for Supervisor)
         m_window = std::make_unique<MainWindow>();
-        m_window->SetBoard(std::move(m_board));
 
         // 5. Create Process Manager
         m_procManager = std::make_unique<ProcessManager>();
+
+        // Pass IPC mode string for display
+        QString ipcDisplay =
+            (m_ipcType == VirtualBoard::IpcType::Pipes) ? "Named Pipes" : "Shared Memory";
+        m_window->SetBoard(std::move(m_board), ipcDisplay);
     }
 }
 
@@ -56,8 +59,9 @@ int Application::Run()
     {
         // SUPERVISOR MODE
         m_window->show();
-        // Запускаємо 3 воркерів
-        m_procManager->StartWorkers(3, QApplication::applicationFilePath());
+        // Start 3 workers, pass IPC mode
+        QString ipcArg = (m_ipcType == VirtualBoard::IpcType::Pipes) ? "pipe" : "shm";
+        m_procManager->StartWorkers(3, QApplication::applicationFilePath(), ipcArg);
 
         return m_app->exec();
     }

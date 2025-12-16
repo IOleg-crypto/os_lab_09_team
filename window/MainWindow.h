@@ -22,7 +22,8 @@ public:
     ~MainWindow();
 
     Ui::MainWindow *getWindow();
-    void SetBoard(std::unique_ptr<VirtualBoard> board);
+    // Also pass the IPC mode string for display
+    void SetBoard(std::unique_ptr<VirtualBoard> board, const QString &ipcMode);
 
 private slots:
     void UpdateUI();
